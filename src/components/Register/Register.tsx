@@ -6,7 +6,7 @@ import Link from 'next/link';
 import React, { useState } from 'react'
 import { enqueueSnackbar } from 'notistack';
 import { useUserStore } from '@/store/userStore';
-import { User } from '@/utils/validation';
+import { Company, User } from '@/utils/validation';
 import { useRouter } from 'next/navigation';
 
 const Register = () => {
@@ -32,7 +32,7 @@ const Register = () => {
         const response = await register(body);
         if (response.success) {
             console.log(response.data);
-            setUser(response.data?.user as User);
+            setUser(response.data?.user as User & { companyId: Company });
             enqueueSnackbar('Register successful', { variant: 'success' });
             router.push('/onboarding');
         } else {
