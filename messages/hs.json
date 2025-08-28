@@ -1,0 +1,509 @@
+{
+  "appTitle": "Iyaka Hub",
+  "loading": {
+    "authenticating": "Ana tantancewa...",
+    "loadingBusiness": "Ana kawo bayanan kasuwancinka..."
+  },
+  "confirmationModal": {
+    "cancel": "Soke",
+    "confirm": "Tabbatar"
+  },
+  "pageHeader": {
+    "export": "Fitar da CSV",
+    "proFeature": "Tsari na Musamman"
+  },
+  "offline": {
+    "banner": "A yanzu haka ba ka kan intanet. Za a daidaita canje-canjenka idan ka dawo.",
+    "disabledAction": "An kashe wannan aikin yayin da ba a kan intanet."
+  },
+  "sync": {
+    "pending": "Ana jiran daidaitawa...",
+    "failed": "An kasa daidaitawa: {error}",
+    "resolveHelp": "An kasa daidaita wannan abu. Da fatan za a goge shi sannan a sake gwadawa."
+  },
+  "loginPage": {
+    "title": "Iyaka Hub",
+    "subtitle": "Cibiyar Gudanar da Kasuwancin Ka.",
+    "formTitleCreate": "Buɗe Akawun Kasuwancin Ka",
+    "formTitleLogin": "Barka da dawowa!",
+    "formTitleResetPassword": "Kai kai kalmar sirri ka?",
+    "businessNameLabel": "Sunan Kasuwanci",
+    "businessNamePlaceholder": "misali, Aliyu & 'Ya'yansa Trading",
+    "formTitleForgotPassword": "Kai kai kalmar sirri ka?",
+    "firstNameLabel": "Aɗin Ka",
+    "lastNameLabel": "Aɗin Ka",
+    "emailLabel": "Adireshin Imel ɗin Ka",
+    "passwordLabel": "Kalmar sirri",
+    "confirmPasswordLabel": "Tabbatar da Kalmar sirri",
+    "processing": "Ana aiki...",
+    "signUpButton": "Buɗe Kasuwanci",
+    "loginButton": "Shiga",
+    "resetPasswordButton": "Kai kai kalmar sirri",
+    "backToLogin": "Shiga da shiga",
+    "alreadyHaveAccount": "Kana da akawun?",
+    "dontHaveAccount": "Ba ka da akawun?",
+    "forgotPassword": "Kai kai kalmar sirri ka?",
+    "forgotPasswordLink": "Kai kai kalmar sirri?",
+    "loginLink": "Shiga",
+    "signUpLink": "Rajista",
+    "poweredBy": "Kasuwancin da Beyond Iyaka",
+    "loginSuccess": "Shiga cikin nasara.",
+    "registerSuccess": "Rajista cikin nasara.",
+    "businessCreated": "Kasuwanci aƙara cikin nasara.",
+    "errors": {
+      "passwordsDoNotMatch": "Kalmomin sirri ba su dace ba.",
+      "businessNameRequired": "Ana buƙatar sunan kasuwanci.",
+      "invalidFirebaseConfig": "Saiti na Firebase ba daidai ba. Da fatan za a duba maɓallan yanayin muhalli naka.",
+      "invalidEmail": "Da fatan za a shigar da adireshin imel mai inganci.",
+      "invalidCredentials": "Imel ko kalmar sirri ba daidai ba.",
+      "emailInUse": "An riga an yi amfani da wannan imel ɗin.",
+      "weakPassword": "Kalmar sirri ya kamata ta kasance aƙalla haruffa 6.",
+      "unexpected": "An samu kuskuren da ba a zata ba. A sake gwadawa.",
+      "limitReached": "Ka kai iyakacin {feature} guda {limit} na tsarin ka. Da fatan za a inganta tsarin ka."
+    }
+  },
+  "onboardingPage": {
+    "title": "Iyaka Hub",
+    "completeProfile": "Kammala Bayanan Ka",
+    "completeSetup": "Kammala Saiti",
+    "welcome": "Barka da zuwa, {email}! Saura mataki daya kacal ka fara.",
+    "subtitle": "Saura mataki daya kacal ka fara.",
+    "businessNameLabel": "Sunan Kasuwanci",
+    "businessNamePlaceholder": "misali: Aliyu & Sons Trading",
+    "businessTypeLabel": "Menene babban irin kasuwancinku?",
+    "businessTypePlaceholder": "Zaɓi irin kasuwanci",
+    "poweredBy": "Kasuwancin da Beyond Iyaka",
+    "businessTypeOptions": {
+      "retail": "Sayarwa kai tsaye (Retail)",
+      "wholesale": "Sayarwa da yawa (Wholesale)",
+      "service": "Sabis",
+      "manufacturing": "Masana’antu",
+      "convenienceStore": "Shagon kayan masarufi / Provision Shop",
+      "foodDrinksSeller": "Mai sayar da Abinci & Abin Sha (Restaurant/Bukateria)",
+      "clothingFabricsTrader": "Mai sayar da Tufafi & Yadi",
+      "consumerElectronicsShop": "Shagon Kayan Lantarki",
+      "pharmacyChemist": "Asibitin Magani / Chemist",
+      "buildingMaterialsSupplier": "Mai sayar da Kayan Gine-gine",
+      "cosmeticsBeautyProducts": "Kayan Shafe-shafe & Kyau",
+      "farmingAgriculturalProducts": "Noma / Kayayyakin Aikin Noma",
+      "automotiveParts": "Kayan Gyaran Mota",
+      "other": "Sauran"
+    },
+    "businessAddressLabel": "Ina kasuwancinku yake? (Karamar Hukuma)",
+    "businessAddressPlaceholder": "Zaɓi LGA ɗinku",
+    "businessArea": "Wane kasuwa ko babban yanki?",
+    "businessAreaPlaceholder": "Zaɓi kasuwa ko babban yanki",
+    "businessTypeNotFound": "Ana irin kasuwanci",
+    "businessLocationNotFound": "Ana kasuwa ko babban yanki",
+    "businessMarketNotFound": "Ana kasuwa ko babban yanki",
+    "otherMarket": "Sauran / Ba kuɗi kuɗi"
+  },
+  "createProfilePage": {
+    "title": "Kammala Bayanan Ka",
+    "welcome": "Barka da zuwa, {email}! Saura mataki daya kacal ka fara.",
+    "creating": "Ana Kirkirar Bayanai...",
+    "createButton": "Kammala Saiti"
+  },
+  "sidebar": {
+    "appTitle": "Iyaka Hub",
+    "dashboard": "Babban Shafi",
+    "inventory": "Kayan Shago",
+    "categories": "Rukuni",
+    "sales": "Saye da Sayarwa",
+    "debtors": "Masu Bashi",
+    "expenses": "Kuɗaɗen da aka Kashe",
+    "team": "Tawaga",
+    "billing": "Biyan Kuɗi & Tsare-tsare",
+    "settings": "Shigar",
+    "logout": "Fita"
+  },
+  "header": {
+    "toggleSidebar": "Buɗe/Rufe Shafin Gefen",
+    "welcome": "Barka da zuwa, {displayName}!",
+    "changeLanguage": "Canja Harshe",
+    "upgrade": "Inganta",
+    "viewAs": "Duba A Matsayin",
+    "adminView": "Matsayin Admin",
+    "memberView": "Matsayin Ma'aikaci",
+    "adminActionTooltip": "Wannan aikin na mai gida ne kawai."
+  },
+  "dashboard": {
+    "selectTimeframe": "Zaɓi Tsawon Lokaci",
+    "timeframes": {
+      "today": "Yau",
+      "thisWeek": "Wannan Makon",
+      "thisMonth": "Wannan Watan",
+      "last6Months": "Watanni 6 da Suka Wuce"
+    },
+    "statCards": {
+      "totalSales": "Jimlar Siyarwa",
+      "totalExpenses": "Jimlar Kuɗaɗen da aka Kashe",
+      "itemsInStock": "Kayan da ke Shago",
+      "outstandingDebt": "Bashin da kake bi"
+    },
+    "salesTrend": "Yanayin Siyarwa ({timeframe})",
+    "noSalesData": "Babu bayanan siyarwa na wannan lokacin.",
+    "expenseBreakdown": "Rabe-raben Kuɗaɗen da aka Kashe",
+    "noExpenseData": "Babu bayanan kuɗaɗen da aka kashe na wannan lokacin.",
+    "lowStockAlerts": "Gargaɗin Ƙarancin Kaya",
+    "lowStockItem": "{count} ya rage",
+    "noLowStockItems": "Babu kayan da suka yi ƙaranci. Aiki mai kyau!",
+    "recentSales": "Siyarwa na Kwanan Nan ({timeframe})",
+    "noRecentSales": "Babu siyarwar da aka yi a wannan lokacin."
+  },
+  "inventoryPage": {
+    "addNewProduct": "Ƙara Sabon Kaya",
+    "searchPlaceholder": "Bincika da sunan kaya, kamfani, ko rukuni...",
+    "alerts": {
+      "fillAllFields": "Da fatan za a cika dukkan sassan da ake buƙata kuma tabbatar farashin ya dace.",
+      "errorSaving": "An samu kuskure wajen adana kayan.",
+      "productLimit": "Ka kai iyakacin kaya {limit} a tsarin ka na yanzu. Da fatan za a inganta don ƙara wasu."
+    },
+    "confirmDelete": {
+      "title": "Goge Kaya",
+      "cancel": "Soke",
+      "delete": "Goge",
+      "message": "Ka tabbata kana son goge {name}? Wannan zai cire shi daga kayan akawunka har abada kuma ba za a iya mayar da wannan aikin ba."
+    },
+    "modal": {
+      "addTitle": "Ƙara Sabon Kaya",
+      "editTitle": "Gyara Kaya",
+      "productName": "Sunan Kaya",
+      "brandName": "Sunan Kamfani (misali, Dangote)",
+      "category": "Rukuni",
+      "selectCategory": "Zaɓi rukuni",
+      "addNewCategory": "-- Ƙara Sabon Rukuni --",
+      "newCategoryName": "Sunan Sabon Rukuni",
+      "newCategoryPlaceholder": "Shigar da sunan sabon rukuni",
+      "stock": "Adadi",
+      "price": "Farashi (₦)",
+      "lowStockThreshold": "Adadin Gargaɗin Ƙaranci",
+      "variants": "Kalolin Kaya",
+      "variantName": "Sunan Kala",
+      "addVariant": "Ƙara Kala",
+      "adding": "Ana ƙarawa...",
+      "updating": "Ana sabuntawa...",
+      "addButton": "Ƙara Kaya",
+      "updateButton": "Sabunta Kaya",
+      "addSuccess": "Kaya aƙara cikin nasara.",
+      "addError": "An samu kuskure wajen ƙara kaya. Da fatan za a inganta."
+    },
+    "table": {
+      "productName": "Sunan Kaya",
+      "brandName": "Sunan Kamfani",
+      "category": "Rukuni",
+      "stock": "Adadin",
+      "price": "Farashi",
+      "status": "Yanayi",
+      "actions": "Ayyuka",
+      "editAction": "Gyara {name}",
+      "deleteAction": "Goge {name}"
+    },
+    "status": {
+      "outOfStock": "Ya Ƙare",
+      "lowStock": "Ya Kusa Ƙarewa",
+      "inStock": "Akwai"
+    },
+    "noProducts": "Ba a sami kaya ba. Ƙara sabo don farawa!"
+  },
+  "salesPage": {
+    "recordNewSale": "Rubuta Sabuwar Siyarwa",
+    "searchPlaceholder": "Bincika da kaya, sunan abokin ciniki...",
+    "alerts": {
+      "notEnoughStock": "Ba za a iya siyar da fiye da adadin da ke akawu ba ({stock}).",
+      "addOneItem": "Da fatan za a ƙara aƙalla kaya ɗaya mai inganci a siyarwar.",
+      "customerNameRequired": "Ana buƙatar sunan abokin ciniki don siyarwar bashi.",
+      "discountTooHigh": "Ragi ba zai iya wuce ainihin farashin kowane abu ba.",
+      "errorAdding": "An samu kuskure wajen ƙara siyarwar.",
+      "monthlyLimit": "Ka kai iyakacin siyarwa {limit} na wata a tsarin kyauta. Da fatan za a inganta."
+    },
+    "confirmDelete": {
+      "title": "Goge Bayanan Siyarwa",
+      "cancel": "Soke",
+      "delete": "Goge",
+      "message": "Ka tabbata kana son goge wannan siyarwar? Wannan aikin zai mayar da kayan da aka siyar kuma ya cire duk wani bayanin bashi. Ba za a iya mayar da wannan aikin ba.",
+      "failedMessage": "An kasa daidaita wannan abu. Goge shi zai cire shi daga na'urarka. Ka tabbata?"
+    },
+    "filters": {
+      "allMethods": "Duk Hanyoyin Biyan Kuɗi",
+      "cash": "Kudi a Hannu",
+      "bankTransfer": "Tura wa Banki",
+      "pos": "POS",
+      "credit": "Bashi",
+      "startDate": "Ranar Farawa",
+      "endDate": "Ranar Ƙarewa"
+    },
+    "modal": {
+      "title": "Rubuta Sabuwar Siyarwa",
+      "product": "Kaya",
+      "selectProduct": "Zaɓi kaya",
+      "selectVariant": "Zaɓi kaya/rabe",
+      "stockLeft": "{count} ya rage",
+      "quantity": "Adadi",
+      "decreaseQuantity": "Rage adadi",
+      "increaseQuantity": "Ƙara adadi",
+      "itemQuantity": "Adadin kaya",
+      "addItem": "+ Ƙara wani kaya",
+      "paymentStatus": "Yanayin Biyan Kuɗi",
+      "customerName": "Sunan Abokin Ciniki",
+      "saleDate": "Ranar Siyarwa",
+      "total": "Jimla",
+      "originalPrice": "Farashin Asali",
+      "lineOriginalPrice": "Farashin Asali",
+      "finalPrice": "Farashin Karshe (kowanne)",
+      "lineFinalPrice": "Farashin Karshe",
+      "discountApplied": "Ragi da aka Yi",
+      "discount": "Ragi (₦ kowanne)",
+      "recording": "Ana rubutawa...",
+      "recordButton": "Rubuta Siyarwa"
+    },
+    "table": {
+      "date": "Rana",
+      "itemsSold": "Kayan da aka Siyar",
+      "totalAmount": "Jimlar Kuɗi",
+      "discount": "Ragi",
+      "paymentMethod": "Hanyar Biyan Kuɗi",
+      "customer": "Abokin Ciniki",
+      "actions": "Ayyuka",
+      "notApplicable": "Babu",
+      "deleteAction": "Goge siyarwa {id}"
+    },
+    "noSales": "Ba a sami siyarwa ba. Gwada canza matatun."
+  },
+  "expensesPage": {
+    "addNewExpense": "Ƙara Sabon Kuɗin da aka Kashe",
+    "searchPlaceholder": "Bincika da bayanin kuɗin da aka kashe...",
+    "alerts": {
+      "fillAllFields": "Da fatan za a shigar da bayani da adadi mai inganci.",
+      "errorSaving": "An samu kuskure wajen adana kuɗin da aka kashe.",
+      "monthlyLimit": "Ka kai iyakacin kashe kuɗi {limit} na wata a tsarin kyauta. Da fatan za a inganta."
+    },
+    "confirmDelete": {
+      "title": "Goge Kuɗin da aka Kashe",
+      "cancel": "Soke",
+      "delete": "Goge",
+      "message": "Ka tabbata kana son goge wannan bayanin kuɗin da aka kashe? Ba za a iya mayar da wannan aikin ba."
+    },
+    "modal": {
+      "addTitle": "Ƙara Sabon Kuɗin da aka Kashe",
+      "editTitle": "Gyara Kuɗin da aka Kashe",
+      "description": "Bayani",
+      "category": "Rukuni",
+      "amount": "Adadi (₦)",
+      "date": "Rana",
+      "adding": "Ana ƙarawa...",
+      "updating": "Ana sabuntawa...",
+      "addButton": "Ƙara Kuɗi",
+      "updateButton": "Sabunta Kuɗi"
+    },
+    "table": {
+      "date": "Rana",
+      "description": "Bayani",
+      "category": "Rukuni",
+      "amount": "Adadi",
+      "actions": "Ayyuka",
+      "editAction": "Gyara {desc}",
+      "deleteAction": "Goge {desc}"
+    },
+    "noExpenses": "Ba a sami kuɗin da aka kashe ba. Ƙara sabo don farawa!"
+  },
+  "debtorsPage": {
+    "addManualDebtor": "Ƙara Mai Bashi da Hannu",
+    "searchPlaceholder": "Bincika da sunan abokin ciniki...",
+    "alerts": {
+      "fillAllFields": "Da fatan za a shigar da sunan abokin ciniki da adadi mai inganci.",
+      "enterValidPayment": "Da fatan za a shigar da adadin biyan kuɗi mai inganci.",
+      "paymentTooHigh": "Biyan kuɗi ba zai iya wuce adadin bashin ba."
+    },
+    "paymentHistory": "Tarihin Biyan Kuɗi",
+    "noPayments": "Babu biyan kuɗi da aka rubuta tukuna.",
+    "addModal": {
+      "title": "Ƙara Mai Bashi da Hannu",
+      "customerName": "Sunan Abokin Ciniki",
+      "amountOwed": "Jimlar Bashin da ake Bin Ka (₦)",
+      "debtDate": "Ranar Bashi",
+      "adding": "Ana ƙarawa...",
+      "addButton": "Ƙara Mai Bashi"
+    },
+    "paymentModal": {
+      "title": "Rubuta Biyan Bashi na {name}",
+      "totalDebt": "Jimlar Bashi",
+      "amountPaid": "Adadin da aka Biya",
+      "amountOwed": "Bashin da ya Rage",
+      "paymentAmount": "Adadin Biyan Kuɗi (₦)",
+      "paymentDate": "Ranar Biyan Kuɗi",
+      "recording": "Ana rubutawa...",
+      "recordButton": "Rubuta Biyan Bashi"
+    },
+    "table": {
+      "customerName": "Sunan Abokin Ciniki",
+      "totalOwed": "Jimlar Bashi",
+      "amountPaid": "Adadin da aka Biya",
+      "balance": "Ragowar",
+      "status": "Yanayi",
+      "actions": "Ayyuka",
+      "recordPayment": "Rubuta Biyan Bashi"
+    },
+    "noDebtors": "Ba a sami masu bashi ba."
+  },
+  "teamPage": {
+    "addMember": "Ƙara Ma'aikaci",
+    "adminActionTooltip": "Wannan aikin na mai gida ne kawai.",
+    "noMembers": "Ba a sami ma'aikata ba. Ƙara ɗaya don farawa!",
+    "errors": {
+      "addMemberFailed": "Kasawar ƙara ma'aikaci. Wataƙila sun riga sun kasance a cikin tawagar ku.",
+      "removeMemberFailed": "Kasawar cire ma'aikaci.",
+      "limitReached": "Ka kai iyakacin ma'aikata na tsarin ka. Da fatan za a inganta don ƙara wasu.",
+      "premiumFeature": "Ƙara ma'aikata fasali ne na tsarin Premium. Da fatan za a inganta."
+    },
+    "confirmDelete": {
+      "title": "Cire Ma'aikaci",
+      "message": "Ka tabbata kana son cire {email} daga tawagar ka?"
+    },
+    "addModal": {
+      "title": "Ƙara Sabon Ma'aikaci",
+      "emailLabel": "Imel na Ma'aikaci",
+      "helperText": "Dole ne mai amfani ya kasance yana da akawun Iyaka Hub kafin a iya ƙara shi.",
+      "adding": "Ana ƙarawa...",
+      "addButton": "Ƙara Ma'aikaci"
+    },
+    "table": {
+      "email": "Imel",
+      "role": "Matsayi",
+      "actions": "Ayyuka",
+      "removeAction": "Cire {email} daga tawaga"
+    },
+    "roles": {
+      "admin": "Mai Gida",
+      "member": "Ma'aikaci"
+    }
+  },
+  "pricingPage": {
+    "title": "Zabi Tsarin da ya dace da kai",
+    "subtitle": "Fara da kyauta kuma ka haɓaka yayin da kasuwancinka ke girma. Babu wasu ɓoyayyun kuɗaɗe.",
+    "monthly": "Wata-wata",
+    "annually": "Shekara-shekara",
+    "saveTwoMonths": "Ajiye na watanni 2",
+    "currentPlan": "Tsarin Yanzu",
+    "upgrade": "Inganta",
+    "downgrade": "Tuntuɓi Taimako",
+    "initiatingPayment": "Ana Fara Biyan Kuɗi...",
+    "plans": {
+      "free": {
+        "name": "Kyauta",
+        "price": "₦0",
+        "priceDetails": "Har abada",
+        "target": "Don Sababbin Kasuwanci"
+      },
+      "growth": {
+        "name": "Ci Gaba",
+        "price": "₦1",
+        "priceDetails": "/ wata",
+        "annualPrice": "₦10",
+        "target": "Don Kasuwanci masu tasowa"
+      },
+      "premium": {
+        "name": "Na Musamman",
+        "price": "₦2",
+        "priceDetails": "/ wata",
+        "annualPrice": "₦20",
+        "target": "Don Manyan Kasuwanci"
+      }
+    },
+    "features": {
+      "inventoryLimit": "Kayan Shago masu iyaka (guda 25)",
+      "salesExpenseLimit": "Siyarwa & Kashe-kashe masu iyaka (30/wata)",
+      "debtTracking": "Cikakken Bibiyar Bashi & Abokan Ciniki",
+      "basicDashboard": "Babban Shafi na asali (Lissafi kawai)",
+      "unlimitedInventory": "Kayan Shago marasa iyaka",
+      "unlimitedSalesExpense": "Siyarwa & Kashe-kashe marasa iyaka",
+      "fullDashboard": "Cikakken Babban Shafi mai zane-zane",
+      "exportData": "Fitar da Bayanai zuwa CSV",
+      "multiUser": "Amfani da Ma'aikata da yawa (har zuwa 2)",
+      "advancedReporting": "Rahoto na Musamman (Nan gaba)",
+      "prioritySupport": "Taimako na Musamman"
+    }
+  },
+  "saleStatus": {
+    "cash": "Kudi a Hannu",
+    "bankTransfer": "Tura wa Banki",
+    "pos": "POS",
+    "credit": "Bashi"
+  },
+  "expenseCategories": {
+    "maintenanceRepairs": "Gyara da Kula",
+    "salariesWages": "Albashi",
+    "utilities": "Kuɗaɗen Wuta/Ruwa",
+    "supplies": "Kayan Aiki",
+    "rent": "Haya",
+    "other": "Wasu"
+  },
+  "debtorStatus": {
+    "pending": "Ana Bin Bashi",
+    "partiallyPaid": "An Biya Sashe"
+  },
+  "categoryPage": {
+    "title": "Rukuni",
+    "searchPlaceholder": "Ƙara kuɗi sunan rukuni",
+    "addNewCategory": "Ƙara Sabon Rukuni",
+    "addTitle": "Ƙara Sabon Rukuni",
+    "editTitle": "Gyara Rukuni",
+    "categoryName": "Sunan Rukuni",
+    "productCount": "Aikin Rukuni",
+    "addButton": "Ƙara Rukuni",
+    "updateButton": "Sabunta Rukuni",
+    "actions": "Aikina",
+    "categoryAdded": "Rukuni aƙara cikin nasara.",
+    "categoryUpdated": "Rukuni ajiye canje-canje cikin nasara.",
+    "categoryDeleted": "Rukuni aƙara cikin nasara.",
+    "confirmDelete": {
+      "title": "Goge Rukuni",
+      "cancel": "Soke",
+      "delete": "Goge",
+      "message": "Ka tabbata kana son goge {name}? Wannan zai cire shi daga rukuni akawunka har abada kuma ba za a iya mayar da wannan aikin ba."
+    },
+    "alerts": {
+      "fillAllFields": "Da fatan za a shigar da sunan rukuni da adadi mai inganci.",
+      "errorSaving": "An samu kuskure wajen adana rukuni."
+    }
+  },
+  "settingsPage": {
+    "title": "Saituna",
+    "subtitle": "Sarrafa saitunan kasuwancinka da abubuwan da kake so.",
+    "personalInfo": "Bayanan Kanka",
+    "personalInfoSubtitle": "Sarrafa bayananka na sirri da bayanan tuntuɓa",
+    "businessInfo": "Bayanan Kasuwanci",
+    "businessInfoSubtitle": "Sabunta bayanan kasuwancinka da bayanan kamfani",
+    "passwordInfo": "Kalmar sirri & Tsaro",
+    "passwordSubtitle": "Canja kalmar sirri don kiyaye asusunka cikin tsaro",
+    "passwordLastChanged": "An canja kalmar sirrinka kwana 30 da suka wuce",
+    "passwordRecommendation": "Don dalilan tsaro, muna ba da shawarar ka rika canja kalmar sirrinka akai-akai",
+    "updatePassword": "Sabunta Kalmar Sirri",
+    "edit": "Gyara",
+    "save": "Ajiye",
+    "cancel": "Soke",
+    "personal": "Na kaina",
+    "business": "Kasuwanci",
+    "password": "Kalmar sirri",
+    "saveChanges": "Ajiye Canje-canje",
+    "currentPassword": "Kalmar Sirri ta Yanzu",
+    "newPassword": "Sabuwar Kalmar Sirri",
+    "confirmPassword": "Tabbatar da Kalmar Sirri",
+    "changePassword": "Canja Kalmar Sirri",
+    "changePasswordSuccess": "An canja kalmar sirri cikin nasara.",
+    "changePasswordError": "An kasa canja kalmar sirri. Don Allah sake gwadawa.",
+    "saveSuccess": "An ajiye canje-canje cikin nasara.",
+    "saveError": "An kasa ajiye canje-canje. Don Allah sake gwadawa.",
+    "saveButton": "Ajiye Canje-canje",
+    "cancelButton": "Soke",
+    "emailAddress": "Adireshin Imel",
+    "phoneNumber": "Lambar Waya",
+    "firstName": "Sunan Farko",
+    "lastName": "Sunan Karshe",
+    "businessName": "Sunan Kasuwanci",
+    "businessAddress": "Adireshin Kasuwanci",
+    "businessPhone": "Wayan Kasuwanci",
+    "businessEmail": "Imel na Kasuwanci",
+    "taxId": "Lambar Haraji"
+  }
+}

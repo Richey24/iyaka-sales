@@ -1,0 +1,508 @@
+{
+    "appTitle": "Iyaka Hub",
+    "loading": {
+        "authenticating": "Authenticating...",
+        "loadingBusiness": "Loading your business..."
+    },
+    "confirmationModal": {
+        "cancel": "Cancel",
+        "confirm": "Confirm"
+    },
+    "pageHeader": {
+        "export": "Export CSV",
+        "proFeature": "Pro Feature"
+    },
+    "offline": {
+        "banner": "You are currently offline. Your changes will be synced when you reconnect.",
+        "disabledAction": "This action is disabled while offline."
+    },
+    "sync": {
+        "pending": "Pending sync...",
+        "failed": "Sync failed: {error}",
+        "resolveHelp": "This item failed to sync. Please delete it and try again."
+    },
+    "loginPage": {
+        "title": "Iyaka Hub",
+        "subtitle": "Your business command center.",
+        "formTitleCreate": "Create Your Business Account",
+        "formTitleLogin": "Welcome Back!",
+        "formTitleResetPassword": "Reset Your Password",
+        "formTitleForgotPassword": "Forgot Your Password?",
+        "firstNameLabel": "First Name",
+        "lastNameLabel": "Last Name",
+        "emailLabel": "Your Email Address",
+        "passwordLabel": "Password",
+        "confirmPasswordLabel": "Confirm Password",
+        "processing": "Processing...",
+        "signUpButton": "Create Business",
+        "loginButton": "Login",
+        "resetPasswordButton": "Reset Password",
+        "alreadyHaveAccount": "Already have an account?",
+        "dontHaveAccount": "Don't have an account?",
+        "forgotPassword": "Forgot Your Password?",
+        "backToLogin": "Back to Login",
+        "loginLink": "Login",
+        "signUpLink": "Sign Up",
+        "forgotPasswordLink": "Forgot Password?",
+        "poweredBy": "Powered by Beyond Iyaka",
+        "loginSuccess": "Login successful",
+        "registerSuccess": "Registration successful",
+        "businessCreated": "Business created successfully",
+        "errors": {
+            "passwordsDoNotMatch": "Passwords do not match.",
+            "businessNameRequired": "Business name is required.",
+            "invalidFirebaseConfig": "Invalid Firebase configuration. Please check your environment variables.",
+            "invalidEmail": "Please enter a valid email address.",
+            "invalidCredentials": "Invalid email or password.",
+            "emailInUse": "An account with this email already exists.",
+            "weakPassword": "Password should be at least 6 characters.",
+            "unexpected": "An unexpected error occurred. Please try again.",
+            "limitReached": "{feature} limit of {limit} reached for your plan. Please upgrade to continue."
+        }
+    },
+    "onboardingPage": {
+        "title": "Iyaka Hub",
+        "completeProfile": "Complete Your Profile",
+        "completeSetup": "Complete Setup",
+        "welcome": "Welcome, {email}! Just one more step to get started.",
+        "subtitle": "Let's set up your business profile.",
+        "businessNameLabel": "Business Name",
+        "businessNamePlaceholder": "e.g., Aliyu & Sons Trading",
+        "businessTypeLabel": "What is your main business type?",
+        "businessTypePlaceholder": "Select a business type",
+        "poweredBy": "Powered by Beyond Iyaka",
+        "businessTypeOptions": {
+            "retail": "Retail",
+            "wholesale": "Wholesale",
+            "service": "Service",
+            "manufacturing": "Manufacturing",
+            "convenienceStore": "Convenience Store / Provision Shop",
+            "foodDrinksSeller": "Food & Drinks Seller (Restaurant/Bukateria)",
+            "clothingFabricsTrader": "Clothing & Fabrics Trader",
+            "consumerElectronicsShop": "Consumer Electronics Shop",
+            "pharmacyChemist": "Pharmacy / Chemist",
+            "buildingMaterialsSupplier": "Building Materials Supplier",
+            "cosmeticsBeautyProducts": "Cosmetics & Beauty Products",
+            "farmingAgriculturalProducts": "Farming / Agricultural Products",
+            "automotiveParts": "Automotive Parts",
+            "other": "Other"
+        },
+        "businessAddressLabel": "Where is your business located? (Local Government)",
+        "businessAddressPlaceholder": "Select your LGA",
+        "businessArea": "Which market or main area?",
+        "businessAreaPlaceholder": "Select your market or main area",
+        "businessTypeNotFound": "No business type found",
+        "businessLocationNotFound": "No business location found",
+        "businessMarketNotFound": "No business market found",
+        "otherMarket": "Other/Not in a major market"
+    },
+    "createProfilePage": {
+        "title": "Complete Your Profile",
+        "welcome": "Welcome, {email}! Just one more step to get started.",
+        "creating": "Creating Profile...",
+        "createButton": "Complete Setup"
+    },
+    "sidebar": {
+        "appTitle": "Iyaka Hub",
+        "dashboard": "Dashboard",
+        "inventory": "Inventory",
+        "categories": "Categories",
+        "sales": "Sales",
+        "debtors": "Debtors",
+        "expenses": "Expenses",
+        "team": "Team",
+        "billing": "Billing & Plans",
+        "settings": "Settings",
+        "logout": "Logout"
+    },
+    "header": {
+        "toggleSidebar": "Toggle sidebar",
+        "welcome": "Welcome, {displayName}!",
+        "changeLanguage": "Change language",
+        "upgrade": "Upgrade",
+        "viewAs": "View As",
+        "adminView": "Admin View",
+        "memberView": "Member View",
+        "adminActionTooltip": "This action is restricted to admins."
+    },
+    "dashboard": {
+        "selectTimeframe": "Select time frame",
+        "timeframes": {
+            "today": "Today",
+            "thisWeek": "This Week",
+            "thisMonth": "This Month",
+            "last6Months": "Last 6 Months"
+        },
+        "statCards": {
+            "totalSales": "Total Sales",
+            "totalExpenses": "Total Expenses",
+            "itemsInStock": "Items in Stock",
+            "outstandingDebt": "Outstanding Debt"
+        },
+        "salesTrend": "Sales Trend ({timeframe})",
+        "noSalesData": "No sales data for the selected period.",
+        "expenseBreakdown": "Expense Breakdown",
+        "noExpenseData": "No expense data for the selected period.",
+        "lowStockAlerts": "Low Stock Alerts",
+        "lowStockItem": "{count} left",
+        "noLowStockItems": "No items are low on stock. Great job!",
+        "recentSales": "Recent Sales ({timeframe})",
+        "noRecentSales": "No sales recorded for this period."
+    },
+    "inventoryPage": {
+        "addNewProduct": "Add New Product",
+        "searchPlaceholder": "Search by product name, brand, or category...",
+        "alerts": {
+            "fillAllFields": "Please fill all required fields and ensure price is positive.",
+            "errorSaving": "An error occurred while saving the product.",
+            "productLimit": "Product limit of {limit} reached for your current plan. Please upgrade to add more."
+        },
+        "confirmDelete": {
+            "title": "Delete Product",
+            "cancel": "Cancel",
+            "delete": "Delete",
+            "message": "Are you sure you want to delete {name}? This will remove it from your inventory permanently and cannot be undone."
+        },
+        "modal": {
+            "addTitle": "Add New Product",
+            "editTitle": "Edit Product",
+            "productName": "Product Name",
+            "brandName": "Brand Name (e.g., Dangote)",
+            "category": "Category",
+            "selectCategory": "Select a category",
+            "addNewCategory": "-- Add New Category --",
+            "newCategoryName": "New Category Name",
+            "newCategoryPlaceholder": "Enter new category name",
+            "stock": "Stock",
+            "price": "Price (₦)",
+            "lowStockThreshold": "Low Stock Threshold",
+            "variants": "Product Variants",
+            "variantName": "Variant Name",
+            "addVariant": "Add Variant",
+            "adding": "Adding...",
+            "updating": "Updating...",
+            "addButton": "Add Product",
+            "updateButton": "Update Product",
+            "addSuccess": "Product added successfully",
+            "addError": "Failed to add product. Please try again."
+        },
+        "table": {
+            "productName": "Product Name",
+            "brandName": "Brand Name",
+            "category": "Category",
+            "stock": "Stock",
+            "price": "Price",
+            "status": "Status",
+            "actions": "Actions",
+            "editAction": "Edit {name}",
+            "deleteAction": "Delete {name}"
+        },
+        "status": {
+            "outOfStock": "Out of Stock",
+            "lowStock": "Low Stock",
+            "inStock": "In Stock"
+        },
+        "noProducts": "No products found. Add one to get started!"
+    },
+    "salesPage": {
+        "recordNewSale": "Record New Sale",
+        "searchPlaceholder": "Search by item, customer name...",
+        "alerts": {
+            "notEnoughStock": "Cannot sell more than available stock ({stock}).",
+            "addOneItem": "Please add at least one valid item to the sale.",
+            "customerNameRequired": "Customer name is required for credit sales.",
+            "discountTooHigh": "Discount cannot be greater than the original price per item.",
+            "errorAdding": "An error occurred while adding the sale.",
+            "monthlyLimit": "You have reached your monthly limit of {limit} sales for the free plan. Please upgrade."
+        },
+        "confirmDelete": {
+            "title": "Delete Sale Record",
+            "cancel": "Cancel",
+            "delete": "Delete",
+            "message": "Are you sure you want to delete this sale? This action will restock the sold items and remove any associated debt record. This cannot be undone.",
+            "failedMessage": "This item failed to sync. Deleting it will remove it from your device. Are you sure?"
+        },
+        "filters": {
+            "allMethods": "All Payment Methods",
+            "cash": "Cash",
+            "bankTransfer": "Bank Transfer",
+            "pos": "POS",
+            "credit": "Credit",
+            "startDate": "Start Date",
+            "endDate": "End Date"
+        },
+        "modal": {
+            "title": "Record New Sale",
+            "product": "Product",
+            "selectProduct": "Select a product",
+            "selectVariant": "Select a product/variant",
+            "stockLeft": "{count} left",
+            "quantity": "Quantity",
+            "decreaseQuantity": "Decrease quantity",
+            "increaseQuantity": "Increase quantity",
+            "itemQuantity": "Item quantity",
+            "addItem": "+ Add another item",
+            "paymentMethod": "Payment Method",
+            "customerName": "Customer Name",
+            "saleDate": "Sale Date",
+            "total": "Total",
+            "originalPrice": "Original Price",
+            "lineOriginalPrice": "Original Price",
+            "finalPrice": "Final Price (per item)",
+            "lineFinalPrice": "Final Price",
+            "discountApplied": "Discount Applied",
+            "discount": "Discount (₦ per item)",
+            "recording": "Recording...",
+            "recordButton": "Record Sale"
+        },
+        "table": {
+            "date": "Date",
+            "itemsSold": "Items Sold",
+            "totalAmount": "Total Amount",
+            "discount": "Discount",
+            "paymentMethod": "Payment Method",
+            "customer": "Customer",
+            "actions": "Actions",
+            "notApplicable": "N/A",
+            "deleteAction": "Delete sale {id}"
+        },
+        "noSales": "No sales found. Try adjusting your filters."
+    },
+    "expensesPage": {
+        "addNewExpense": "Add New Expense",
+        "searchPlaceholder": "Search by expense description...",
+        "alerts": {
+            "fillAllFields": "Please enter a description and a valid amount.",
+            "errorSaving": "An error occurred while saving the expense.",
+            "monthlyLimit": "You have reached your monthly limit of {limit} expenses for the free plan. Please upgrade."
+        },
+        "confirmDelete": {
+            "title": "Delete Expense",
+            "cancel": "Cancel",
+            "delete": "Delete",
+            "message": "Are you sure you want to delete this expense record? This action cannot be undone."
+        },
+        "modal": {
+            "addTitle": "Add New Expense",
+            "editTitle": "Edit Expense",
+            "description": "Description",
+            "category": "Category",
+            "amount": "Amount (₦)",
+            "date": "Date",
+            "adding": "Adding...",
+            "updating": "Updating...",
+            "addButton": "Add Expense",
+            "updateButton": "Update Expense"
+        },
+        "table": {
+            "date": "Date",
+            "description": "Description",
+            "category": "Category",
+            "amount": "Amount",
+            "actions": "Actions",
+            "editAction": "Edit {desc}",
+            "deleteAction": "Delete {desc}"
+        },
+        "noExpenses": "No expenses found. Add one to get started!"
+    },
+    "debtorsPage": {
+        "addManualDebtor": "Add Manual Debtor",
+        "searchPlaceholder": "Search by customer name...",
+        "alerts": {
+            "fillAllFields": "Please enter a customer name and a valid amount.",
+            "enterValidPayment": "Please enter a valid payment amount.",
+            "paymentTooHigh": "Payment cannot be more than the amount owed."
+        },
+        "paymentHistory": "Payment History",
+        "noPayments": "No payments recorded yet.",
+        "addModal": {
+            "title": "Add Manual Debtor",
+            "customerName": "Customer Name",
+            "amountOwed": "Total Amount Owed (₦)",
+            "debtDate": "Debt Date",
+            "adding": "Adding...",
+            "addButton": "Add Debtor"
+        },
+        "paymentModal": {
+            "title": "Record Payment for {name}",
+            "totalDebt": "Total Debt",
+            "amountPaid": "Amount Paid",
+            "amountOwed": "Amount Owed",
+            "paymentAmount": "Payment Amount (₦)",
+            "paymentDate": "Payment Date",
+            "recording": "Recording...",
+            "recordButton": "Record Payment"
+        },
+        "table": {
+            "customerName": "Customer Name",
+            "totalOwed": "Total Owed",
+            "amountPaid": "Amount Paid",
+            "balance": "Balance",
+            "status": "Status",
+            "actions": "Actions",
+            "recordPayment": "Record Payment"
+        },
+        "noDebtors": "No debtors found."
+    },
+    "teamPage": {
+        "addMember": "Add Member",
+        "adminActionTooltip": "This action is restricted to admins.",
+        "noMembers": "No team members found. Add one to get started!",
+        "errors": {
+            "addMemberFailed": "Failed to add member. They may already be in your team.",
+            "removeMemberFailed": "Failed to remove member.",
+            "limitReached": "You have reached the team member limit for your current plan. Please upgrade to add more members.",
+            "premiumFeature": "Adding members is a Premium feature. Please upgrade."
+        },
+        "confirmDelete": {
+            "title": "Remove Member",
+            "message": "Are you sure you want to remove {email} from your team?"
+        },
+        "addModal": {
+            "title": "Add New Team Member",
+            "role": "Role",
+            "emailLabel": "Member's Email Address",
+            "helperText": "The user must have an Iyaka Hub account to be added.",
+            "adding": "Adding...",
+            "addButton": "Add Member"
+        },
+        "table": {
+            "email": "Email",
+            "role": "Role",
+            "actions": "Actions",
+            "removeAction": "Remove {email} from team"
+        },
+        "roles": {
+            "admin": "Admin",
+            "member": "Member"
+        }
+    },
+    "pricingPage": {
+        "title": "Choose the Plan That's Right for You",
+        "subtitle": "Start for free and scale as your business grows. No hidden fees.",
+        "monthly": "Monthly",
+        "annually": "Annually",
+        "saveTwoMonths": "Save 2 months",
+        "currentPlan": "Current Plan",
+        "upgrade": "Upgrade",
+        "downgrade": "Contact Support",
+        "initiatingPayment": "Initiating Payment...",
+        "plans": {
+            "free": {
+                "name": "Free",
+                "price": "₦0",
+                "priceDetails": "Forever",
+                "target": "For New & Micro Businesses"
+            },
+            "growth": {
+                "name": "Growth",
+                "price": "₦1",
+                "priceDetails": "/ month",
+                "annualPrice": "₦10",
+                "target": "For Growing SMEs"
+            },
+            "premium": {
+                "name": "Premium",
+                "price": "₦2",
+                "priceDetails": "/ month",
+                "annualPrice": "₦20",
+                "target": "For Established Businesses"
+            }
+        },
+        "features": {
+            "inventoryLimit": "Limited Inventory (25 products)",
+            "salesExpenseLimit": "Limited Sales & Expenses (30/month)",
+            "debtTracking": "Full Debt & Customer Tracking",
+            "basicDashboard": "Basic Dashboard (Metrics only)",
+            "unlimitedInventory": "Unlimited Inventory",
+            "unlimitedSalesExpense": "Unlimited Sales & Expense Records",
+            "fullDashboard": "Full Dashboard with Visual Charts",
+            "exportData": "Export Data to CSV",
+            "multiUser": "Multi-User Access (up to 2 members)",
+            "advancedReporting": "Advanced Reporting (Future)",
+            "prioritySupport": "Priority Customer Support"
+        }
+    },
+    "saleStatus": {
+        "cash": "Cash",
+        "bankTransfer": "Bank Transfer",
+        "pos": "POS",
+        "credit": "Credit"
+    },
+    "expenseCategories": {
+        "maintenanceRepairs": "Maintenance/Repairs",
+        "salariesWages": "Salaries/Wages",
+        "utilities": "Utilities",
+        "supplies": "Supplies",
+        "rent": "Rent",
+        "other": "Other"
+    },
+    "debtorStatus": {
+        "pending": "Pending",
+        "partiallyPaid": "Partially Paid"
+    },
+    "categoryPage": {
+        "title": "Categories",
+        "searchPlaceholder": "Search by category name...",
+        "addNewCategory": "Add New Category",
+        "addTitle": "Add New Category",
+        "editTitle": "Edit Category",
+        "categoryName": "Category Name",
+        "productCount": "Product Count",
+        "actions": "Actions",
+        "categoryAdded": "Category added successfully",
+        "categoryUpdated": "Category updated successfully",
+        "categoryDeleted": "Category deleted successfully",
+        "addButton": "Add Category",
+        "updateButton": "Update Category",
+        "confirmDelete": {
+            "title": "Delete Category",
+            "cancel": "Cancel",
+            "delete": "Delete",
+            "message": "Are you sure you want to delete {name}? This will remove it from your categories permanently and cannot be undone."
+        },
+        "alerts": {
+            "fillAllFields": "Please enter a category name.",
+            "errorSaving": "An error occurred while saving the category."
+        }
+    },
+    "settingsPage": {
+        "title": "Settings",
+        "subtitle": "Manage your business settings and preferences.",
+        "personalInfo": "Personal Information",
+        "personalInfoSubtitle": "Manage your personal details and contact information",
+        "businessInfo": "Business Information",
+        "businessInfoSubtitle": "Update your business details and company information",
+        "passwordInfo": "Password & Security",
+        "passwordSubtitle": "Change your password to keep your account secure",
+        "passwordLastChanged": "Your password was last changed 30 days ago",
+        "passwordRecommendation": "For security reasons, we recommend changing your password regularly",
+        "updatePassword": "Update Password",
+        "edit": "Edit",
+        "save": "Save",
+        "cancel": "Cancel",
+        "personal": "Personal",
+        "business": "Business",
+        "password": "Password",
+        "saveChanges": "Save Changes",
+        "currentPassword": "Current Password",
+        "newPassword": "New Password",
+        "confirmPassword": "Confirm Password",
+        "changePassword": "Change Password",
+        "changePasswordSuccess": "Password changed successfully.",
+        "changePasswordError": "Failed to change password. Please try again.",
+        "saveSuccess": "Changes saved successfully.",
+        "saveError": "Failed to save changes. Please try again.",
+        "saveButton": "Save Changes",
+        "cancelButton": "Cancel",
+        "emailAddress": "Email Address",
+        "phoneNumber": "Phone Number",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "businessName": "Business Name",
+        "businessAddress": "Business Address",
+        "businessPhone": "Business Phone",
+        "businessEmail": "Business Email",
+        "taxId": "Tax ID"
+    }
+}
