@@ -9,8 +9,8 @@ import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
 
 
-export async function POST (req: Request) {
-    // try {
+export async function POST(req: Request) {
+    try {
         const body = await req.json();
         const parsed = loginSchema.safeParse(body);
         if (!parsed.success) {
@@ -55,10 +55,10 @@ export async function POST (req: Request) {
         const userWithoutPassword = user.toObject();
         delete userWithoutPassword.password;
         return NextResponse.json({ message: "Login successful", user: userWithoutPassword }, { status: 200 });
-    // } catch (error) {
-    //     return NextResponse.json(
-    //         { message: "Internal server error", error },
-    //         { status: 500 }
-    //     );
-    // }
+    } catch (error) {
+        return NextResponse.json(
+            { message: "Internal server error", error },
+            { status: 500 }
+        );
+    }
 }

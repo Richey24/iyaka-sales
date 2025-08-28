@@ -43,6 +43,20 @@ export async function POST(req: Request) {
         }
         const company = await Company.create({ ...parsed.data, userId: user._id });
         await User.findByIdAndUpdate(user._id, { companyId: company._id });
+        const newToken = jwt.sign({
+            id: user._id,
+            role: user.role,
+            companyId: company._id,
+        }, process.env.JWT_SECRET as string, { expiresIn: "7d" });
+        cookieStore.set({
+            name: "token",
+            value: newToken,
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "strict",
+            path: "/",
+            maxAge: 60 * 60 * 24 * 7, // 7 days
+        });
         return NextResponse.json(company, { status: 200 });
     } catch (error) {
         return NextResponse.json(
