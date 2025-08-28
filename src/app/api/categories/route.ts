@@ -5,6 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
+import mongoose from "mongoose";
 
 export async function POST(req: Request) {
     try {
@@ -54,13 +55,36 @@ export async function GET(req: NextRequest) {
         }
         const decoded = jwt.verify(token.value, process.env.JWT_SECRET as string) as { companyId: string };
         await connectDB();
-        const categories = await Category.find({
-            companyId: decoded.companyId,
-            name: { $regex: search, $options: "i" }
-        })
-            .skip((Number(page) - 1) * Number(limit))
-            .limit(Number(limit))
-            .sort({ createdAt: -1 });
+        const categories = await Category.aggregate([
+            {
+                $match: {
+                    companyId: new mongoose.Types.ObjectId(decoded.companyId),
+                    name: { $regex: search, $options: "i" }
+                }
+            },
+            {
+                $lookup: {
+                    from: "products",
+                    localField: "_id",
+                    foreignField: "category",
+                    as: "products"
+                }
+            },
+            {
+                $addFields: {
+                    productCount: { $size: "$products" }
+                }
+            },
+            {
+                $project: {
+                    products: 0
+                }
+            },
+            { $sort: { createdAt: -1 } },
+            { $skip: (Number(page) - 1) * Number(limit) },
+            { $limit: Number(limit) }
+        ]);
+
         const total = await Category.countDocuments({ companyId: decoded.companyId });
         return NextResponse.json({ categories, total, totalPages: Math.ceil(total / Number(limit)) }, { status: 200 });
     } catch (error) {

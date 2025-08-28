@@ -57,7 +57,8 @@ export async function GET(request: NextRequest) {
             .skip((Number(page) - 1) * Number(limit))
             .limit(Number(limit))
             .sort({ createdAt: -1 });
-        return NextResponse.json({ expenses }, { status: 200 });
+        const total = await Expenses.countDocuments({ companyId: decoded.companyId });
+        return NextResponse.json({ expenses, total, totalPages: Math.ceil(total / Number(limit)) }, { status: 200 });
     } catch (error) {
         return NextResponse.json({ message: "Internal server error", error }, { status: 500 });
     }

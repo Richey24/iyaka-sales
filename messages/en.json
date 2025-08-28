@@ -139,9 +139,10 @@
             "itemsInStock": "Items in Stock",
             "outstandingDebt": "Outstanding Debt"
         },
+        "salesChart": "Sales Trend",
         "salesTrend": "Sales Trend ({timeframe})",
         "noSalesData": "No sales data for the selected period.",
-        "expenseBreakdown": "Expense Breakdown",
+        "expenseBreakdown": "Expense Breakdown ({timeframe})",
         "noExpenseData": "No expense data for the selected period.",
         "lowStockAlerts": "Low Stock Alerts",
         "lowStockItem": "{count} left",
@@ -168,6 +169,7 @@
             "editTitle": "Edit Product",
             "productName": "Product Name",
             "brandName": "Brand Name (e.g., Dangote)",
+            "detailsBrandName": "Brand Name",
             "category": "Category",
             "selectCategory": "Select a category",
             "addNewCategory": "-- Add New Category --",
@@ -184,7 +186,10 @@
             "addButton": "Add Product",
             "updateButton": "Update Product",
             "addSuccess": "Product added successfully",
-            "addError": "Failed to add product. Please try again."
+            "addError": "Failed to add product. Please try again.",
+            "deleteSuccess": "Product deleted successfully",
+            "updateSuccess": "Product updated successfully",
+            "productDetails": "Product Details"
         },
         "table": {
             "productName": "Product Name",
@@ -220,12 +225,14 @@
             "cancel": "Cancel",
             "delete": "Delete",
             "message": "Are you sure you want to delete this sale? This action will restock the sold items and remove any associated debt record. This cannot be undone.",
-            "failedMessage": "This item failed to sync. Deleting it will remove it from your device. Are you sure?"
+            "failedMessage": "This item failed to sync. Deleting it will remove it from your device. Are you sure?",
+            "success": "Sale deleted successfully",
+            "error": "Failed to delete sale. Please try again."
         },
         "filters": {
             "allMethods": "All Payment Methods",
             "cash": "Cash",
-            "bankTransfer": "Bank Transfer",
+            "bank": "Bank Transfer",
             "pos": "POS",
             "credit": "Credit",
             "startDate": "Start Date",
@@ -233,6 +240,7 @@
         },
         "modal": {
             "title": "Record New Sale",
+            "editTitle": "Edit Sale",
             "product": "Product",
             "selectProduct": "Select a product",
             "selectVariant": "Select a product/variant",
@@ -243,7 +251,7 @@
             "itemQuantity": "Item quantity",
             "addItem": "+ Add another item",
             "paymentMethod": "Payment Method",
-            "customerName": "Customer Name",
+            "customer": "Customer Name",
             "saleDate": "Sale Date",
             "total": "Total",
             "originalPrice": "Original Price",
@@ -253,7 +261,17 @@
             "discountApplied": "Discount Applied",
             "discount": "Discount (₦ per item)",
             "recording": "Recording...",
-            "recordButton": "Record Sale"
+            "recordButton": "Record Sale",
+            "updateButton": "Update Sale",
+            "createSuccess": "Sale created successfully",
+            "createError": "Failed to create sale. Please try again.",
+            "updateSuccess": "Sale updated successfully",
+            "updateError": "Failed to update sale. Please try again.",
+            "saleDetails": "Sale Details",
+            "productName": "Product Name",
+            "totalAmount": "Total Amount",
+            "totalDiscount": "Total Discount",
+            "price": "Price"
         },
         "table": {
             "date": "Date",
@@ -272,7 +290,7 @@
         "addNewExpense": "Add New Expense",
         "searchPlaceholder": "Search by expense description...",
         "alerts": {
-            "fillAllFields": "Please enter a description and a valid amount.",
+            "fillAllFields": "Please select a category and choose a date.",
             "errorSaving": "An error occurred while saving the expense.",
             "monthlyLimit": "You have reached your monthly limit of {limit} expenses for the free plan. Please upgrade."
         },
@@ -281,6 +299,14 @@
             "cancel": "Cancel",
             "delete": "Delete",
             "message": "Are you sure you want to delete this expense record? This action cannot be undone."
+        },
+        "categories": {
+            "maintenanceRepairs": "Maintenance/Repairs",
+            "salariesWages": "Salaries/Wages",
+            "utilities": "Utilities",
+            "supplies": "Supplies",
+            "rent": "Rent",
+            "other": "Other"
         },
         "modal": {
             "addTitle": "Add New Expense",
@@ -292,7 +318,9 @@
             "adding": "Adding...",
             "updating": "Updating...",
             "addButton": "Add Expense",
-            "updateButton": "Update Expense"
+            "updateButton": "Update Expense",
+            "success": "Expense added successfully",
+            "error": "Failed to add expense. Please try again."
         },
         "table": {
             "date": "Date",
@@ -311,7 +339,8 @@
         "alerts": {
             "fillAllFields": "Please enter a customer name and a valid amount.",
             "enterValidPayment": "Please enter a valid payment amount.",
-            "paymentTooHigh": "Payment cannot be more than the amount owed."
+            "paymentTooHigh": "Payment cannot be more than the amount owed.",
+            "noDate": "Please select a payment date."
         },
         "paymentHistory": "Payment History",
         "noPayments": "No payments recorded yet.",
@@ -321,7 +350,9 @@
             "amountOwed": "Total Amount Owed (₦)",
             "debtDate": "Debt Date",
             "adding": "Adding...",
-            "addButton": "Add Debtor"
+            "addButton": "Add Debtor",
+            "success": "Debtor added successfully",
+            "error": "Failed to add debtor. Please try again."
         },
         "paymentModal": {
             "title": "Record Payment for {name}",
@@ -331,7 +362,9 @@
             "paymentAmount": "Payment Amount (₦)",
             "paymentDate": "Payment Date",
             "recording": "Recording...",
-            "recordButton": "Record Payment"
+            "recordButton": "Record Payment",
+            "success": "Payment recorded successfully",
+            "error": "Failed to record payment. Please try again."
         },
         "table": {
             "customerName": "Customer Name",
@@ -356,15 +389,24 @@
         },
         "confirmDelete": {
             "title": "Remove Member",
-            "message": "Are you sure you want to remove {email} from your team?"
+            "message": "Are you sure you want to remove {email} from your team?",
+            "cancel": "Cancel",
+            "delete": "Delete",
+            "success": "Member removed successfully",
+            "error": "Failed to remove member. Please try again."
         },
         "addModal": {
             "title": "Add New Team Member",
             "role": "Role",
+            "firstNameLabel": "First Name",
+            "lastNameLabel": "Last Name",
+            "passwordLabel": "Password",
             "emailLabel": "Member's Email Address",
             "helperText": "The user must have an Iyaka Hub account to be added.",
             "adding": "Adding...",
-            "addButton": "Add Member"
+            "addButton": "Add Member",
+            "success": "Member added successfully",
+            "error": "Failed to add member. Please try again."
         },
         "table": {
             "email": "Email",
@@ -503,6 +545,14 @@
         "businessAddress": "Business Address",
         "businessPhone": "Business Phone",
         "businessEmail": "Business Email",
-        "taxId": "Tax ID"
+        "taxId": "Tax ID",
+        "successPassword": "Password updated successfully",
+        "errorPassword": "Failed to update password. Please try again.",
+        "errorPasswordMatch": "Passwords do not match",
+        "errorPasswordMinLength": "Password must be at least 8 characters long",
+        "successPersonal": "Personal information updated successfully",
+        "errorPersonal": "Failed to update personal information. Please try again.",
+        "successBusiness": "Business information updated successfully",
+        "errorBusiness": "Failed to update business information. Please try again."
     }
 }

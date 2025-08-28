@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 import { z } from "zod";
 import { connectDB } from "@/lib/db";
 import { Product } from "@/models/product";
+import "@/models/category";
 
 export async function POST(request: NextRequest) {
     try {

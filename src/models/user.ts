@@ -14,13 +14,3 @@ const userSchema = new Schema(
 );
 
 export const User = models.User || model("User", userSchema);
-
-userSchema.set("toJSON", { virtuals: true });
-userSchema.set("toObject", { virtuals: true });
-
-userSchema.virtual("company", {
-    ref: "Company",
-    localField: "companyId",
-    foreignField: "_id",
-    justOne: true,
-});

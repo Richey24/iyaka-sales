@@ -17,7 +17,7 @@ export async function POST(req: Request) {
                 { status: 401 }
             );
         }
-        const decoded = jwt.verify(token.value, process.env.JWT_SECRET as string) as { role: string };
+        const decoded = jwt.verify(token.value, process.env.JWT_SECRET as string) as { role: string, companyId: string };
         if (decoded.role !== "admin") {
             return NextResponse.json(
                 { message: "Unauthorized" },
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
             );
         }
         const hashedPassword = await bcrypt.hash(parsed.data.password, 10);
-        const user = await User.create({ ...parsed.data, password: hashedPassword });
+        const user = await User.create({ ...parsed.data, password: hashedPassword, companyId: decoded.companyId });
         return NextResponse.json({ message: "User created successfully", user }, { status: 201 });
     } catch (error) {
         return NextResponse.json(
@@ -65,7 +65,7 @@ export async function GET() {
         const decoded = jwt.verify(token.value, process.env.JWT_SECRET as string) as { companyId: string };
         await connectDB();
         const users = await User.find({ companyId: decoded.companyId });
-        return NextResponse.json(users, { status: 200 });
+        return NextResponse.json({ users }, { status: 200 });
     } catch (error) {
         return NextResponse.json(
             { message: "Internal server error", error },

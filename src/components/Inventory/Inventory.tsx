@@ -2,15 +2,16 @@
 import React, { useEffect, useState } from 'react'
 import PageHeader from '../Layout/PageHeader'
 import { useTranslations } from 'next-intl'
-import { Pagination, Table, TextInput } from '@mantine/core'
+import { Badge, Pagination, Table, TextInput } from '@mantine/core'
 import { FaEdit, FaSearch, FaSpinner, FaTrash } from 'react-icons/fa'
 import Card from '../Dashboard/Card'
 import AddProduct from './AddProduct'
 import DeleteProduct from './DeleteProduct'
 import { getProducts } from '@/api/products'
 import { Category, Product } from '@/utils/validation'
-import { getProductPrice, getProductStock } from '@/utils/helper'
+import { getProductPrice, getProductStatus, getProductStock } from '@/utils/helper'
 import { debounce } from 'lodash'
+import ProductDetails from './ProductDetails'
 
 const Inventory = () => {
     const t = useTranslations()
@@ -23,6 +24,8 @@ const Inventory = () => {
     const [page, setPage] = useState(1)
     const [totalPages, setTotalPages] = useState(1)
     const [totalProducts, setTotalProducts] = useState(0)
+    const [productDetailsModal, setProductDetailsModal] = useState(false)
+    const [selectedProduct, setSelectedProduct] = useState<Product & { category: Category, _id: string } | null>(null)
 
     const fetchProducts = async (pageParams: number, searchTermParams: string) => {
         setLoading(true)
@@ -50,7 +53,7 @@ const Inventory = () => {
 
     return (
         <div className="space-y-6 p-6">
-            <PageHeader title={`${t('sidebar.inventory')} (${totalProducts})`} onAdd={() => setAddProductModal(true)} addText={t('inventoryPage.addNewProduct')} canExport={true} onExport={() => { }} />
+            <PageHeader title={`${t('sidebar.inventory')} (${totalProducts})`} onAdd={() => { setSelectedProduct(null); setAddProductModal(true) }} addText={t('inventoryPage.addNewProduct')} canExport={true} onExport={() => { }} />
             <Card>
                 <div className="relative">
                     <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -83,16 +86,18 @@ const Inventory = () => {
                             <Table.Tbody>
                                 {
                                     products.map((product) => (
-                                        <Table.Tr key={product?._id}>
+                                        <Table.Tr key={product?._id} style={{cursor: 'pointer'}} onClick={() => { setSelectedProduct(product); setProductDetailsModal(true) }}>
                                             <Table.Td>{product?.name}</Table.Td>
                                             <Table.Td>{product?.category?.name}</Table.Td>
                                             <Table.Td>{getProductStock(product)}</Table.Td>
                                             <Table.Td>{getProductPrice(product)}</Table.Td>
-                                            <Table.Td>Active</Table.Td>
+                                            <Table.Td>
+                                                <Badge color={getProductStatus(getProductStock(product), product.lowStockLimit) === 'Low Stock' ? 'red' : 'green'}>{getProductStatus(getProductStock(product), product.lowStockLimit)}</Badge>
+                                            </Table.Td>
                                             <Table.Td>
                                                 <div className="flex items-center space-x-2">
-                                                    <FaEdit className="text-gray-700 cursor-pointer" size={20} />
-                                                    <FaTrash className="text-gray-700 cursor-pointer" size={20} onClick={() => setDeleteProductModal(true)} />
+                                                    <FaEdit className="text-gray-700 cursor-pointer" size={20} onClick={(e) => { e.stopPropagation(); setSelectedProduct(product); setAddProductModal(true) }} />
+                                                    <FaTrash className="text-gray-700 cursor-pointer" size={20} onClick={(e) => { e.stopPropagation(); setSelectedProduct(product); setDeleteProductModal(true) }} />
                                                 </div>
                                             </Table.Td>
                                         </Table.Tr>
@@ -104,8 +109,9 @@ const Inventory = () => {
                 }
             </Card>
             <Pagination total={totalPages} value={page} onChange={setPage} style={{ display: 'flex', justifyContent: 'center' }} />
-            <AddProduct opened={addProductModal} close={() => setAddProductModal(false)} />
-            <DeleteProduct opened={deleteProductModal} close={() => setDeleteProductModal(false)} />
+            <ProductDetails opened={productDetailsModal} close={() => setProductDetailsModal(false)} product={selectedProduct!} />
+            <AddProduct opened={addProductModal} close={() => setAddProductModal(false)} selectedProduct={selectedProduct!} fetchProducts={fetchProducts} />
+            <DeleteProduct opened={deleteProductModal} close={() => setDeleteProductModal(false)} selectedProduct={selectedProduct!} fetchProducts={fetchProducts} />
         </div>
     )
 }

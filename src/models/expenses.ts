@@ -25,13 +25,3 @@ const expensesSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 export const Expenses = mongoose.models.Expenses || mongoose.model("Expenses", expensesSchema);
-
-expensesSchema.set("toJSON", { virtuals: true });
-expensesSchema.set("toObject", { virtuals: true });
-
-expensesSchema.virtual("company", {
-    ref: "Company",
-    localField: "companyId",
-    foreignField: "_id",
-    justOne: true,
-})

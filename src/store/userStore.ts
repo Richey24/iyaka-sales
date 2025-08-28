@@ -1,11 +1,11 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { User } from "@/utils/validation";
+import { Company, User } from "@/utils/validation";
 
 interface UserStore {
-    user: User | null;
+    user: User & { companyId: Company } | null;
     isHydrated: boolean;
-    setUser: (user: User | null) => void;
+    setUser: (user: User & { companyId: Company } | null) => void;
     setIsHydrated: (isHydrated: boolean) => void;
 }
 
@@ -14,7 +14,7 @@ export const useUserStore = create<UserStore>()(
         (set) => ({
             user: null,
             isHydrated: false,
-            setUser: (user: User | null) => set({ user }),
+            setUser: (user: User & { companyId: Company } | null) => set({ user }),
             setIsHydrated: (isHydrated: boolean) => set({ isHydrated }),
         }),
         { 

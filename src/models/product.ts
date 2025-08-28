@@ -42,13 +42,3 @@ const productSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 export const Product = mongoose.models.Product || mongoose.model("Product", productSchema);
-
-productSchema.set("toJSON", { virtuals: true });
-productSchema.set("toObject", { virtuals: true });
-
-productSchema.virtual("company", {
-    ref: "Company",
-    localField: "companyId",
-    foreignField: "_id",
-    justOne: true,
-})

@@ -141,6 +141,7 @@
       "itemsInStock": "Kayan da ke Shago",
       "outstandingDebt": "Bashin da kake bi"
     },
+    "salesChart": "Yanayin Siyarwa",
     "salesTrend": "Yanayin Siyarwa ({timeframe})",
     "noSalesData": "Babu bayanan siyarwa na wannan lokacin.",
     "expenseBreakdown": "Rabe-raben Kuɗaɗen da aka Kashe",
@@ -170,6 +171,7 @@
       "editTitle": "Gyara Kaya",
       "productName": "Sunan Kaya",
       "brandName": "Sunan Kamfani (misali, Dangote)",
+      "detailsBrandName": "Sunan Kamfani",
       "category": "Rukuni",
       "selectCategory": "Zaɓi rukuni",
       "addNewCategory": "-- Ƙara Sabon Rukuni --",
@@ -186,7 +188,10 @@
       "addButton": "Ƙara Kaya",
       "updateButton": "Sabunta Kaya",
       "addSuccess": "Kaya aƙara cikin nasara.",
-      "addError": "An samu kuskure wajen ƙara kaya. Da fatan za a inganta."
+      "addError": "An samu kuskure wajen ƙara kaya. Da fatan za a inganta.",
+      "deleteSuccess": "Kaya a goge cikin nasara.",
+      "updateSuccess": "Kaya a sabunta cikin nasara.",
+      "productDetails": "Kaya Galami"
     },
     "table": {
       "productName": "Sunan Kaya",
@@ -222,12 +227,14 @@
       "cancel": "Soke",
       "delete": "Goge",
       "message": "Ka tabbata kana son goge wannan siyarwar? Wannan aikin zai mayar da kayan da aka siyar kuma ya cire duk wani bayanin bashi. Ba za a iya mayar da wannan aikin ba.",
-      "failedMessage": "An kasa daidaita wannan abu. Goge shi zai cire shi daga na'urarka. Ka tabbata?"
+      "failedMessage": "An kasa daidaita wannan abu. Goge shi zai cire shi daga na'urarka. Ka tabbata?",
+      "success": "Saiyarwa a goge cikin nasara.",
+      "error": "An samu kuskure wajen goge siyarwar. Da fatan za a inganta."
     },
     "filters": {
       "allMethods": "Duk Hanyoyin Biyan Kuɗi",
       "cash": "Kudi a Hannu",
-      "bankTransfer": "Tura wa Banki",
+      "bank": "Tura wa Banki",
       "pos": "POS",
       "credit": "Bashi",
       "startDate": "Ranar Farawa",
@@ -235,6 +242,7 @@
     },
     "modal": {
       "title": "Rubuta Sabuwar Siyarwa",
+      "editTitle": "Gyara Siyarwa",
       "product": "Kaya",
       "selectProduct": "Zaɓi kaya",
       "selectVariant": "Zaɓi kaya/rabe",
@@ -245,7 +253,7 @@
       "itemQuantity": "Adadin kaya",
       "addItem": "+ Ƙara wani kaya",
       "paymentStatus": "Yanayin Biyan Kuɗi",
-      "customerName": "Sunan Abokin Ciniki",
+      "customer": "Sunan Abokin Ciniki",
       "saleDate": "Ranar Siyarwa",
       "total": "Jimla",
       "originalPrice": "Farashin Asali",
@@ -255,7 +263,17 @@
       "discountApplied": "Ragi da aka Yi",
       "discount": "Ragi (₦ kowanne)",
       "recording": "Ana rubutawa...",
-      "recordButton": "Rubuta Siyarwa"
+      "recordButton": "Rubuta Siyarwa",
+      "updateButton": "Sabunta Siyarwa",
+      "createSuccess": "Saiyarwa aƙara cikin nasara.",
+      "createError": "An samu kuskure wajen ƙara siyarwar. Da fatan za a inganta.",
+      "updateSuccess": "Saiyarwa a sabunta cikin nasara.",
+      "updateError": "An samu kuskure wajen sabunta siyarwar. Da fatan za a inganta.",
+      "saleDetails": "Galami Siyarwa",
+      "productName": "Sunan Kaya",
+      "totalAmount": "Jimlar Kuɗi",
+      "totalDiscount": "Jimlar Ragi",
+      "price": "Farashin"
     },
     "table": {
       "date": "Rana",
@@ -274,7 +292,7 @@
     "addNewExpense": "Ƙara Sabon Kuɗin da aka Kashe",
     "searchPlaceholder": "Bincika da bayanin kuɗin da aka kashe...",
     "alerts": {
-      "fillAllFields": "Da fatan za a shigar da bayani da adadi mai inganci.",
+      "fillAllFields": "Da fatan za a shigar da rukuni da ake kuɗi rana.",
       "errorSaving": "An samu kuskure wajen adana kuɗin da aka kashe.",
       "monthlyLimit": "Ka kai iyakacin kashe kuɗi {limit} na wata a tsarin kyauta. Da fatan za a inganta."
     },
@@ -283,6 +301,14 @@
       "cancel": "Soke",
       "delete": "Goge",
       "message": "Ka tabbata kana son goge wannan bayanin kuɗin da aka kashe? Ba za a iya mayar da wannan aikin ba."
+    },
+    "categories": {
+      "maintenanceRepairs": "Gyara da Kula",
+      "salariesWages": "Albashi",
+      "utilities": "Kuɗaɗen Wuta/Ruwa",
+      "supplies": "Kayan Aiki",
+      "rent": "Haya",
+      "other": "Wasu"
     },
     "modal": {
       "addTitle": "Ƙara Sabon Kuɗin da aka Kashe",
@@ -313,7 +339,8 @@
     "alerts": {
       "fillAllFields": "Da fatan za a shigar da sunan abokin ciniki da adadi mai inganci.",
       "enterValidPayment": "Da fatan za a shigar da adadin biyan kuɗi mai inganci.",
-      "paymentTooHigh": "Biyan kuɗi ba zai iya wuce adadin bashin ba."
+      "paymentTooHigh": "Biyan kuɗi ba zai iya wuce adadin bashin ba.",
+      "noDate": "Da fatan za a kuɗi rana biyan kuɗi."
     },
     "paymentHistory": "Tarihin Biyan Kuɗi",
     "noPayments": "Babu biyan kuɗi da aka rubuta tukuna.",
@@ -323,7 +350,9 @@
       "amountOwed": "Jimlar Bashin da ake Bin Ka (₦)",
       "debtDate": "Ranar Bashi",
       "adding": "Ana ƙarawa...",
-      "addButton": "Ƙara Mai Bashi"
+      "addButton": "Ƙara Mai Bashi",
+      "success": "Mai bashi aƙara cikin nasara.",
+      "error": "An samu kuskure wajen ƙara mai bashi. Da fatan za a inganta."
     },
     "paymentModal": {
       "title": "Rubuta Biyan Bashi na {name}",
@@ -333,7 +362,9 @@
       "paymentAmount": "Adadin Biyan Kuɗi (₦)",
       "paymentDate": "Ranar Biyan Kuɗi",
       "recording": "Ana rubutawa...",
-      "recordButton": "Rubuta Biyan Bashi"
+      "recordButton": "Rubuta Biyan Bashi",
+      "success": "Biyan kuɗi a rubuta cikin nasara.",
+      "error": "An samu kuskure wajen rubuta biyan kuɗi. Da fatan za a inganta."
     },
     "table": {
       "customerName": "Sunan Abokin Ciniki",
@@ -358,14 +389,23 @@
     },
     "confirmDelete": {
       "title": "Cire Ma'aikaci",
-      "message": "Ka tabbata kana son cire {email} daga tawagar ka?"
+      "message": "Ka tabbata kana son cire {email} daga tawagar ka?",
+      "cancel": "Soke",
+      "delete": "Goge",
+      "success": "Ma'aikaci a goge cikin nasara.",
+      "error": "An samu kuskure wajen goge ma'aikaci. Da fatan za a inganta."
     },
     "addModal": {
       "title": "Ƙara Sabon Ma'aikaci",
+      "firstNameLabel": "Sunan Kuma",
+      "lastNameLabel": "Sunan Kuma",
+      "passwordLabel": "Sunan Kuma",
       "emailLabel": "Imel na Ma'aikaci",
       "helperText": "Dole ne mai amfani ya kasance yana da akawun Iyaka Hub kafin a iya ƙara shi.",
       "adding": "Ana ƙarawa...",
-      "addButton": "Ƙara Ma'aikaci"
+      "addButton": "Ƙara Ma'aikaci",
+      "success": "Ma'aikaci aƙara cikin nasara.",
+      "error": "An samu kuskure wajen ƙara ma'aikaci. Da fatan za a inganta."
     },
     "table": {
       "email": "Imel",
@@ -504,6 +544,14 @@
     "businessAddress": "Adireshin Kasuwanci",
     "businessPhone": "Wayan Kasuwanci",
     "businessEmail": "Imel na Kasuwanci",
-    "taxId": "Lambar Haraji"
+    "taxId": "Lambar Haraji",
+    "successPassword": "An canja kalmar sirri cikin nasara.",
+    "errorPassword": "An kasa canja kalmar sirri. Don Allah sake gwadawa.",
+    "errorPasswordMatch": "Kalmar sirri ba zai iya tabbata.",
+    "errorPasswordMinLength": "Kalmar sirri ba zai iya tabbata.",
+    "successPersonal": "An ajiye canje-canje cikin nasara.",
+    "errorPersonal": "An kasa ajiye canje-canje. Don Allah sake gwadawa.",
+    "successBusiness": "An ajiye canje-canje cikin nasara.",
+    "errorBusiness": "An kasa ajiye canje-canje. Don Allah sake gwadawa."
   }
 }

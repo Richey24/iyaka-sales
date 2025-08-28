@@ -25,7 +25,7 @@ const salesSchema = new mongoose.Schema({
         required: true,
     },
     paymentMethod: {
-        type: Number,
+        type: String,
         required: true,
     },
     totalAmount: {
@@ -38,6 +38,10 @@ const salesSchema = new mongoose.Schema({
     },
     saleDate: {
         type: Date,
+        required: true,
+    },
+    customer: {
+        type: String,
         required: true,
     },
     companyId: {

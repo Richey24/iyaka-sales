@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { User } from "@/models/user";
+import "@/models/company";
 import jwt from "jsonwebtoken";
 import { connectDB } from "@/lib/db";
 
@@ -16,7 +17,7 @@ export async function GET() {
         }
         const decoded = jwt.verify(token.value, process.env.JWT_SECRET as string) as { id: string };
         await connectDB();
-        const user = await User.findById(decoded.id);
+        const user = await User.findById(decoded.id).populate('companyId').select('-password');
         if (!user) {
             return NextResponse.json(
                 { message: "User not found" },

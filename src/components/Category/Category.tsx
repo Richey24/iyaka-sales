@@ -17,7 +17,7 @@ const Category = () => {
     const [searchTermDebounced, setSearchTermDebounced] = useState('')
     const [addCategoryModal, setAddCategoryModal] = useState(false)
     const [deleteCategoryModal, setDeleteCategoryModal] = useState(false)
-    const [categories, setCategories] = useState<Category[]>([])
+    const [categories, setCategories] = useState<Array<Category & { productCount?: number }>>([])
     const [loading, setLoading] = useState(false)
     const [totalCategories, setTotalCategories] = useState(0)
     const [totalPages, setTotalPages] = useState(0)
@@ -51,7 +51,7 @@ const Category = () => {
 
     return (
         <div className="space-y-6 p-6">
-            <PageHeader title={`${t('title')} (${totalCategories})`} onAdd={() => setAddCategoryModal(true)} addText={t('addNewCategory')} />
+            <PageHeader title={`${t('title')} (${totalCategories})`} onAdd={() => { setSelectedCategory(undefined); setAddCategoryModal(true) }} addText={t('addNewCategory')} />
             <Card>
                 <div className="relative">
                     <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -74,7 +74,7 @@ const Category = () => {
                             <Table.Thead>
                                 <Table.Tr>
                                     <Table.Th>{t('categoryName')}</Table.Th>
-                                    <Table.Th>{t('productCount')}</Table.Th>
+                                    <Table.Th style={{ textAlign: 'center' }}>{t('productCount')}</Table.Th>
                                     <Table.Th>{t('actions')}</Table.Th>
                                 </Table.Tr>
                             </Table.Thead>
@@ -82,7 +82,7 @@ const Category = () => {
                                 {categories.map((category) => (
                                     <Table.Tr key={category._id}>
                                         <Table.Td>{category.name}</Table.Td>
-                                        <Table.Td>{0}</Table.Td>
+                                        <Table.Td style={{ textAlign: 'center' }}>{category.productCount}</Table.Td>
                                         <Table.Td>
                                             <div className="flex items-center space-x-2">
                                                 <FaEdit className="text-gray-700 cursor-pointer" size={20} onClick={() => { setSelectedCategory(category); setAddCategoryModal(true) }} />

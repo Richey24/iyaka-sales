@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 export const userSchema = z.object({
+    _id: z.string().optional(),
     firstName: z.string().min(1, { message: "First name is required" }),
     lastName: z.string().min(1, { message: "Last name is required" }),
     email: z.email({ message: "Invalid email address" }),
@@ -31,11 +32,13 @@ export const categorySchema = z.object({
 });
 
 export const productSchema = z.object({
+    _id: z.string().optional(),
     name: z.string().min(1, { message: "Product name is required" }),
     brand: z.string().min(1, { message: "Brand is required" }),
     category: z.string().min(1, { message: "Category is required" }),
     lowStockLimit: z.number().min(0, { message: "Low stock limit must be greater than 0" }),
     variants: z.array(z.object({
+        _id: z.string().optional(),
         variantName: z.string().min(1, { message: "Variant name is required" }),
         stock: z.number().min(0, { message: "Stock must be greater than 0" }),
         price: z.number().min(0, { message: "Price must be greater than 0" }),
@@ -43,30 +46,39 @@ export const productSchema = z.object({
 });
 
 export const salesSchema = z.object({
+    _id: z.string().optional(),
     items: z.array(z.object({
+        _id: z.string().optional(),
         productName: z.string().min(1, { message: "Product name is required" }),
         quantity: z.number().min(0, { message: "Quantity must be greater than 0" }),
         price: z.number().min(0, { message: "Price must be greater than 0" }),
         discount: z.number().optional(),
     })),
-    paymentMethod: z.enum(["cash", "bank", "card"]),
+    paymentMethod: z.enum(["cash", "bank", "pos", "credit"]),
     totalAmount: z.number().min(0, { message: "Total amount must be greater than 0" }),
     totalDiscount: z.number().optional(),
-    saleDate: z.date(),
+    saleDate: z.coerce.date(),
+    customer: z.string().min(1, { message: "Customer is required" }),
 });
 
 export const debtorSchema = z.object({
+    _id: z.string().optional(),
     name: z.string().min(1, { message: "Name is required" }),
     totalDebt: z.number().min(0, { message: "Total debt must be greater than 0" }),
-    totalPaid: z.number(),
-    debtDate: z.date(),
+    totalPaid: z.number().optional(),
+    debtDate: z.coerce.date(),
+    paymentHistory: z.array(z.object({
+        amount: z.number().min(0, { message: "Amount must be greater than 0" }),
+        date: z.coerce.date(),
+    })).optional(),
 });
 
 export const expensesSchema = z.object({
+    _id: z.string().optional(),
     description: z.string().min(1, { message: "Description is required" }),
     category: z.string().min(1, { message: "Category is required" }),
     amount: z.number().min(0, { message: "Amount must be greater than 0" }),
-    expenseDate: z.date(),
+    expenseDate: z.coerce.date(),
 });
 
 export type User = z.infer<typeof userSchema>;

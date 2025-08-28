@@ -33,6 +33,9 @@ export async function GET(request: NextRequest) {
         const page = params.get("page") ?? "1";
         const limit = params.get("limit") ?? "10";
         const search = params.get("search") ?? "";
+        const paymentMethod = params.get("paymentMethod") ?? "";
+        const startDate = params.get("startDate") ?? "";
+        const endDate = params.get("endDate") ?? "";
 
         const cookieStore = await cookies();
         const token = cookieStore.get("token");
@@ -46,12 +49,22 @@ export async function GET(request: NextRequest) {
         await connectDB();
         const sales = await Sales.find({
             companyId: decoded.companyId,
-            "items.productName": { $regex: search, $options: "i" }
+            "items.productName": { $regex: search, $options: "i" },
+            ...(paymentMethod && { paymentMethod: paymentMethod }),
+            ...(startDate && { saleDate: { $gte: new Date(startDate) } }),
+            ...(endDate && { saleDate: { $lte: new Date(endDate) } })
         })
             .skip((Number(page) - 1) * Number(limit))
             .limit(Number(limit))
             .sort({ createdAt: -1 });
-        return NextResponse.json({ sales }, { status: 200 });
+        const totalSales = await Sales.countDocuments({
+            companyId: decoded.companyId,
+            "items.productName": { $regex: search, $options: "i" },
+            ...(paymentMethod && { paymentMethod: paymentMethod }),
+            ...(startDate && { saleDate: { $gte: new Date(startDate) } }),
+            ...(endDate && { saleDate: { $lte: new Date(endDate) } })
+        });
+        return NextResponse.json({ sales, total: totalSales, totalPages: Math.ceil(totalSales / Number(limit)) }, { status: 200 });
     } catch (error) {
         return NextResponse.json({ message: "Internal server error", error }, { status: 500 });
     }

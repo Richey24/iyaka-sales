@@ -1,5 +1,16 @@
 import mongoose from "mongoose";
 
+const paymentHistorySchema = new mongoose.Schema({
+    amount: {
+        type: Number,
+        required: true,
+    },
+    date: {
+        type: Date,
+        required: true,
+    },
+})
+
 const debtorSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -11,11 +22,17 @@ const debtorSchema = new mongoose.Schema({
     },
     totalPaid: {
         type: Number,
-        required: true,
+        required: false,
+        default: 0,
     },
     debtDate: {
         type: Date,
         required: true,
+    },
+    paymentHistory: {
+        type: [paymentHistorySchema],
+        required: false,
+        default: [],
     },
     companyId: {
         type: mongoose.Schema.Types.ObjectId,
@@ -25,13 +42,3 @@ const debtorSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 export const Debtor = mongoose.models.Debtor || mongoose.model("Debtor", debtorSchema);
-
-debtorSchema.set("toJSON", { virtuals: true });
-debtorSchema.set("toObject", { virtuals: true });
-
-debtorSchema.virtual("company", {
-    ref: "Company",
-    localField: "companyId",
-    foreignField: "_id",
-    justOne: true,
-})

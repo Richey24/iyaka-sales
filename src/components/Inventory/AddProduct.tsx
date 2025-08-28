@@ -2,17 +2,21 @@ import React, { useEffect, useState } from 'react'
 import { Button, Modal, NumberInput, Select, TextInput } from '@mantine/core'
 import { useTranslations } from 'next-intl'
 import { FaTrash } from 'react-icons/fa'
-import { Category } from '@/utils/validation'
+import { Category, Product } from '@/utils/validation'
 import { getCategories } from '@/api/category'
-import { addProduct } from '@/api/products'
+import { addProduct, updateProduct } from '@/api/products'
 import { enqueueSnackbar } from 'notistack'
 import { formatPrice } from '@/utils/helper'
 
-const AddProduct: React.FC<{ opened: boolean, close: () => void }> = ({ opened, close }) => {
+const AddProduct: React.FC<{ opened: boolean, close: () => void, selectedProduct: Product & { _id: string, category: Category }, fetchProducts: (page: number, search: string) => void }> = ({ opened, close, selectedProduct, fetchProducts }) => {
     const t = useTranslations('inventoryPage')
-    const [variantCount, setVariantCount] = useState(1);
+    const [variantCount, setVariantCount] = useState(selectedProduct?.variants?.length || 1);
     const [categories, setCategories] = useState<Category[]>([]);
     const [loading, setLoading] = useState(false)
+
+    useEffect(() => {
+        setVariantCount(selectedProduct?.variants?.length || 1)
+    }, [selectedProduct])
 
     const fetchCategories = async () => {
         const response = await getCategories()
@@ -45,10 +49,16 @@ const AddProduct: React.FC<{ opened: boolean, close: () => void }> = ({ opened, 
             variants
         }
         setLoading(true)
-        const response = await addProduct(body)
+        let response
+        if (selectedProduct?._id) {
+            response = await updateProduct(selectedProduct._id, body)
+        } else {
+            response = await addProduct(body)
+        }
         if (response.success) {
             close()
-            enqueueSnackbar(t('modal.addSuccess'), { variant: 'success' })
+            enqueueSnackbar(selectedProduct?._id ? t('modal.updateSuccess') : t('modal.addSuccess'), { variant: 'success' })
+            fetchProducts(1, '')
         } else {
             enqueueSnackbar(t('modal.addError'), { variant: 'error' })
         }
@@ -58,7 +68,7 @@ const AddProduct: React.FC<{ opened: boolean, close: () => void }> = ({ opened, 
     
     return (
         <>
-            <Modal opened={opened} onClose={close} title={t('modal.addTitle')} centered>
+            <Modal opened={opened} onClose={close} title={selectedProduct?._id ? t('modal.editTitle') : t('modal.addTitle')} centered>
                 <form className="space-y-2 pb-2" onSubmit={handleSubmit}>
                     <Select
                         label={t('modal.category')}
@@ -67,18 +77,22 @@ const AddProduct: React.FC<{ opened: boolean, close: () => void }> = ({ opened, 
                         name="category"
                         required
                         searchable
+                        defaultValue={selectedProduct?.category?._id || ''}
+                        defaultSearchValue={selectedProduct?.category?.name || ''}
                     />
                     <TextInput
                         label={t('modal.productName')}
                         placeholder={t('modal.productName')}
                         required
                         name="productName"
+                        defaultValue={selectedProduct?.name || ''}
                     />
                     <TextInput
                         label={t('modal.brandName')}
                         placeholder={t('modal.brandName')}
                         required
                         name="brandName"
+                        defaultValue={selectedProduct?.brand || ''}
                     />
                     <NumberInput
                         label={t('modal.lowStockThreshold')}
@@ -86,6 +100,7 @@ const AddProduct: React.FC<{ opened: boolean, close: () => void }> = ({ opened, 
                         hideControls
                         required
                         name="lowStockThreshold"
+                        defaultValue={selectedProduct?.lowStockLimit || ''}
                     />
                     <div className='border-t border-gray-200 pt-2 mt-4'>
                         <p className='text-[18px] font-medium'>{t('modal.variants')}</p>
@@ -97,6 +112,7 @@ const AddProduct: React.FC<{ opened: boolean, close: () => void }> = ({ opened, 
                                         placeholder={t('modal.variantName')}
                                         name={`variantName-${index}`}
                                         required
+                                        defaultValue={selectedProduct?.variants?.[index]?.variantName || ''}
                                     />
                                     <NumberInput
                                         label={t('modal.stock')}
@@ -104,6 +120,7 @@ const AddProduct: React.FC<{ opened: boolean, close: () => void }> = ({ opened, 
                                         hideControls
                                         name={`stock-${index}`}
                                         required
+                                        defaultValue={selectedProduct?.variants?.[index]?.stock || ''}
                                     />
                                     <NumberInput
                                         label={t('modal.price')}
@@ -113,6 +130,7 @@ const AddProduct: React.FC<{ opened: boolean, close: () => void }> = ({ opened, 
                                         name={`price-${index}`}
                                         required
                                         thousandSeparator=','
+                                        defaultValue={selectedProduct?.variants?.[index]?.price || ''}
                                     />
                                     {index > 0 && (
                                         <FaTrash
@@ -130,7 +148,7 @@ const AddProduct: React.FC<{ opened: boolean, close: () => void }> = ({ opened, 
                             loading={loading}
                             disabled={loading}
                         >
-                            {loading ? t('modal.adding') : t('modal.addButton')}
+                            {selectedProduct?._id ? t('modal.updateButton') : t('modal.addButton')}
                         </Button>
                     </div>
                 </form>

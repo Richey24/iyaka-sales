@@ -1,5 +1,6 @@
 import { connectDB } from "@/lib/db";
 import { User } from "@/models/user";
+import "@/models/company";
 import { loginSchema } from "@/utils/validation";
 import { NextResponse } from "next/server";
 import { z } from "zod";
@@ -9,7 +10,7 @@ import { cookies } from "next/headers";
 
 
 export async function POST (req: Request) {
-    try {
+    // try {
         const body = await req.json();
         const parsed = loginSchema.safeParse(body);
         if (!parsed.success) {
@@ -20,7 +21,7 @@ export async function POST (req: Request) {
         }
 
         await connectDB();
-        const user = await User.findOne({ email: parsed.data.email });
+        const user = await User.findOne({ email: parsed.data.email }).populate('companyId');
         if (!user) {
             return NextResponse.json(
                 { message: "User not found" },
@@ -54,10 +55,10 @@ export async function POST (req: Request) {
         const userWithoutPassword = user.toObject();
         delete userWithoutPassword.password;
         return NextResponse.json({ message: "Login successful", user: userWithoutPassword }, { status: 200 });
-    } catch (error) {
-        return NextResponse.json(
-            { message: "Internal server error", error },
-            { status: 500 }
-        );
-    }
+    // } catch (error) {
+    //     return NextResponse.json(
+    //         { message: "Internal server error", error },
+    //         { status: 500 }
+    //     );
+    // }
 }

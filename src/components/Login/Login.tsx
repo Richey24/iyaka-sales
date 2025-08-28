@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import React, { useState } from 'react'
 import { enqueueSnackbar } from 'notistack';
-import { User } from '@/utils/validation';
+import { Company, User } from '@/utils/validation';
 import { useUserStore } from '@/store/userStore';
 import { useRouter } from 'next/navigation';
 
@@ -24,7 +24,7 @@ const Login = () => {
         }
         const response = await login(body);
         if (response.success) {
-            setUser(response.data?.user as User);
+            setUser(response.data?.user as User & { companyId: Company });
             enqueueSnackbar('Login successful', { variant: 'success' });
             if (!response.data?.user?.companyId) {
                 router.push('/onboarding');
