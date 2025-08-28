@@ -126,8 +126,8 @@ const Sales = () => {
                                             </Table.Td>
                                             <Table.Td>{formatPriceString(sale?.totalAmount)}</Table.Td>
                                             <Table.Td>{formatPriceString(sale?.totalDiscount || 0)}</Table.Td>
-                                            <Table.Td>{sale?.customer}</Table.Td>
                                             <Table.Td>{t(`salesPage.filters.${sale?.paymentMethod}`)}</Table.Td>
+                                            <Table.Td>{sale?.customer}</Table.Td>
                                             <Table.Td>
                                                 <div className="flex items-center space-x-2">
                                                     <FaEdit className="text-gray-700 cursor-pointer" size={20} onClick={(e) => {

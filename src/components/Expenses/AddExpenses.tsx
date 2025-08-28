@@ -85,7 +85,7 @@ const AddExpenses: React.FC<{ opened: boolean, close: () => void, expense: Expen
                         placeholder={t('modal.date')}
                         required
                         name="date"
-                        defaultValue={expense?.expenseDate}
+                        defaultValue={expense?.expenseDate || new Date()}
                     />
                     <Button
                         type="submit"

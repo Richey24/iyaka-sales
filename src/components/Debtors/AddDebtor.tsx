@@ -51,6 +51,7 @@ const AddDebtor: React.FC<{ opened: boolean, close: () => void, fetchDebtors: ()
                         label={t('addModal.debtDate')}
                         placeholder={t('addModal.debtDate')}
                         name="debtDate"
+                        defaultValue={new Date()}
                     />
                     <Button
                         type="submit"
