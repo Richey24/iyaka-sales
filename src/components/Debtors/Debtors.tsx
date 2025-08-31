@@ -11,6 +11,7 @@ import { getDebtors } from '@/api/debtor'
 import { Debtor } from '@/utils/validation'
 import { useDebouncedValue } from '@mantine/hooks'
 import { formatPriceString, getDebtorStatus, getDebtorStatusColor } from '@/utils/helper'
+import DebtDetails from './DebtDetails'
 
 const Debtors = () => {
     const t = useTranslations()
@@ -18,6 +19,7 @@ const Debtors = () => {
     const [debouncedSearchTerm] = useDebouncedValue(searchTerm, 500)
     const [addDebtorModal, setAddDebtorModal] = useState(false)
     const [recordPaymentModal, setRecordPaymentModal] = useState(false)
+    const [debtDetailsModal, setDebtDetailsModal] = useState(false)
     const [debtors, setDebtors] = useState<Debtor[]>([])
     const [loading, setLoading] = useState(false)
     const [selectedDebtor, setSelectedDebtor] = useState<Debtor | null>(null)
@@ -76,14 +78,18 @@ const Debtors = () => {
                                 <Table.Tbody>
                                     {
                                         debtors?.map((debtor) => (
-                                            <Table.Tr key={debtor?._id}>
+                                            <Table.Tr style={{ cursor: 'pointer' }} key={debtor?._id} onClick={() => {
+                                                setSelectedDebtor(debtor)
+                                                setDebtDetailsModal(true)
+                                            }}>
                                                 <Table.Td>{debtor?.name}</Table.Td>
                                                 <Table.Td>{formatPriceString(debtor?.totalDebt || 0)}</Table.Td>
                                                 <Table.Td>{formatPriceString(debtor?.totalPaid || 0)}</Table.Td>
                                                 <Table.Td>{formatPriceString(debtor?.totalDebt - (debtor?.totalPaid || 0))}</Table.Td>
                                                 <Table.Td><Badge color={getDebtorStatusColor(debtor?.totalDebt || 0, debtor?.totalPaid || 0)}>{getDebtorStatus(debtor?.totalDebt || 0, debtor?.totalPaid || 0)}</Badge></Table.Td>
                                                 <Table.Td>
-                                                    <div className="flex items-center gap-2 justify-center bg-green-500 text-white px-2 py-2 rounded-md cursor-pointer max-w-[160px]" onClick={() => {
+                                                    <div className="flex items-center gap-2 justify-center bg-green-500 text-white px-2 py-2 rounded-md cursor-pointer max-w-[160px]" onClick={(e) => {
+                                                        e.stopPropagation()
                                                         setSelectedDebtor(debtor)
                                                         setRecordPaymentModal(true)
                                                     }}>
@@ -107,6 +113,7 @@ const Debtors = () => {
             <Pagination total={totalPages} value={page} onChange={setPage} style={{ display: 'flex', justifyContent: 'center' }} />
             <AddDebtor opened={addDebtorModal} close={() => setAddDebtorModal(false)} fetchDebtors={() => fetchDebtors(debouncedSearchTerm, page)} />
             <RecordPayment opened={recordPaymentModal} close={() => setRecordPaymentModal(false)} debtor={selectedDebtor} fetchDebtors={() => fetchDebtors(debouncedSearchTerm, page)} />
+            <DebtDetails opened={debtDetailsModal} close={() => setDebtDetailsModal(false)} debtor={selectedDebtor!} />
         </div>
     )
 }

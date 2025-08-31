@@ -1,6 +1,6 @@
 'use client';
 import { registerCompany } from '@/api/company';
-import { getBusinessTypeOptions, kanoLGAs, kanoMarkets } from '@/utils/onboarding';
+import { getBusinessTypeOptions, kanoLGAs, kanoMarkets, kanoMarketsWithLga } from '@/utils/onboarding';
 import { Button, Select, TextInput } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 import React, { useMemo, useState } from 'react'
@@ -24,15 +24,27 @@ const Register = () => {
     const businessTypeOptions = getBusinessTypeOptions(t);
     const { user } = useUserStore();
     const [loading, setLoading] = useState(false);
+    const [selectedMarket, setSelectedMarket] = useState('');
+    const [selectedLGA, setSelectedLGA] = useState('');
     const router = useRouter();
+
+    const handleMarketChange = (value: string) => {
+        setSelectedMarket(value);
+        if (value === 'My market is not listed') {
+            setSelectedLGA('');
+        } else {
+            setSelectedLGA(kanoMarketsWithLga.find((market) => market.market === value)?.lga || '');
+        }
+    }
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
         const response = await registerCompany({
             name: formData.businessName,
             businessType: formData.businessType,
-            address: formData.locationMarket,
-            businessArea: formData.locationLGA,
+            address: selectedMarket === 'My market is not listed' ? formData.locationMarket : selectedMarket,
+            businessArea: selectedMarket === 'My market is not listed' ? formData.locationLGA : selectedLGA,
         });
         if (response.success) {
             enqueueSnackbar('Company registered successfully', { variant: 'success' });
@@ -72,28 +84,57 @@ const Register = () => {
                             onChange={(value) => setFormData({ ...formData, businessType: value || '' })}
                         />
                         <Select
-                            label={t('businessAddressLabel')}
-                            placeholder={t('businessAddressPlaceholder')}
-                            required
-                            className='text-left'
-                            data={kanoLGAs}
-                            searchable
-                            nothingFoundMessage={t('businessLocationNotFound')}
-                            value={formData.locationLGA}
-                            onChange={(value) => setFormData({ ...formData, locationLGA: value || '' })}
-                        />
-                        <Select
                             label={t('businessArea')}
                             placeholder={t('businessAreaPlaceholder')}
                             required
                             className='text-left'
-                            data={availableMarkets}
+                            data={kanoMarketsWithLga.map((market) => market.market)}
                             searchable
                             nothingFoundMessage={t('businessMarketNotFound')}
-                            value={formData.locationMarket}
-                            onChange={(value) => setFormData({ ...formData, locationMarket: value || '' })}
-                            disabled={!formData.locationLGA}
+                            value={selectedMarket}
+                            onChange={(value) => handleMarketChange(value || '')}
                         />
+                        {selectedMarket !== 'My market is not listed' && selectedLGA && <TextInput
+                            value={selectedLGA}
+                            label={t('automatedLGA')}
+                            readOnly
+                            className='text-left'
+                            styles={{
+                                input: {
+                                    backgroundColor: '#fff',
+                                    opacity: 1,
+                                }
+                            }}
+                        />}
+                        {
+                            selectedMarket === 'My market is not listed' && (
+                                <>
+                                    <Select
+                                        label={t('businessAddressLabel')}
+                                        placeholder={t('businessAddressPlaceholder')}
+                                        required
+                                        className='text-left'
+                                        data={kanoLGAs}
+                                        searchable
+                                        nothingFoundMessage={t('businessLocationNotFound')}
+                                        value={formData.locationLGA}
+                                        onChange={(value) => setFormData({ ...formData, locationLGA: value || '' })}
+                                    />
+                                    <Select
+                                        label={t('businessArea')}
+                                        placeholder={t('businessAreaPlaceholder')}
+                                        required
+                                        className='text-left'
+                                        data={availableMarkets}
+                                        searchable
+                                        nothingFoundMessage={t('businessMarketNotFound')}
+                                        value={formData.locationMarket}
+                                        onChange={(value) => setFormData({ ...formData, locationMarket: value || '' })}
+                                        disabled={!formData.locationLGA}
+                                    />
+                                </>
+                            )
+                        }
                         <Button
                             type="submit"
                             style={{ width: '100%', backgroundColor: '#1E293B', marginTop: '10px' }}

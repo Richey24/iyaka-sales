@@ -6,6 +6,8 @@ import jwt from "jsonwebtoken";
 import { connectDB } from "@/lib/db";
 import { companySchema } from "@/utils/validation";
 import { z } from "zod";
+import { Category } from "@/models/category";
+import { defaultCategories } from "@/utils/defaultData";
 
 export async function POST(req: Request) {
     try {
@@ -42,6 +44,7 @@ export async function POST(req: Request) {
             );
         }
         const company = await Company.create({ ...parsed.data, userId: user._id });
+        await Category.insertMany(defaultCategories(company._id));
         await User.findByIdAndUpdate(user._id, { companyId: company._id });
         const newToken = jwt.sign({
             id: user._id,

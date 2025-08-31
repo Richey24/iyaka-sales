@@ -10,6 +10,7 @@ import { formatPrice } from '@/utils/helper'
 import { enqueueSnackbar } from 'notistack'
 import { addSales, updateSales } from '@/api/sales'
 import type { Sales } from '@/utils/validation'
+import { addDebtor } from '@/api/debtor'
 
 const AddSales: React.FC<{ opened: boolean, close: () => void, sale?: Sales, fetchSales: () => void }> = ({ opened, close, sale, fetchSales }) => {
     const t = useTranslations('salesPage')
@@ -19,6 +20,7 @@ const AddSales: React.FC<{ opened: boolean, close: () => void, sale?: Sales, fet
     const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
     const [isLoading, setIsLoading] = useState(false)
     const [selectedDropdown, setSelectedDropdown] = useState<null | number>(null)
+    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<string | null>(null)
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
@@ -101,6 +103,14 @@ const AddSales: React.FC<{ opened: boolean, close: () => void, sale?: Sales, fet
             response = await updateSales(sale._id!, body)
         } else {
             response = await addSales(body)
+        }
+        if (selectedPaymentMethod === 'credit') {
+            const debtBody = {
+                name: sales.customer as string,
+                totalDebt: body.totalAmount,
+                debtDate: new Date(sales.saleDate as string),
+            }
+            await addDebtor(debtBody)
         }
         if (response.success) {
             enqueueSnackbar(sale ? t('modal.updateSuccess') : t('modal.createSuccess'), { variant: 'success' })
@@ -212,7 +222,7 @@ const AddSales: React.FC<{ opened: boolean, close: () => void, sale?: Sales, fet
                         placeholder={t('modal.customer')}
                         name="customer"
                         style={{ width: '100%' }}
-                        required
+                        required={selectedPaymentMethod === 'credit'}
                         defaultValue={sale?.customer || ''}
                     />
                     <div className='flex gap-2 items-center justify-between mt-2'>
@@ -224,6 +234,8 @@ const AddSales: React.FC<{ opened: boolean, close: () => void, sale?: Sales, fet
                             style={{ width: '100%' }}
                             required
                             defaultValue={sale?.paymentMethod || ''}
+                            value={selectedPaymentMethod}
+                            onChange={setSelectedPaymentMethod}
                         />
                         <DatePickerInput
                             label={t('modal.saleDate')}
@@ -231,8 +243,7 @@ const AddSales: React.FC<{ opened: boolean, close: () => void, sale?: Sales, fet
                             name="saleDate"
                             style={{ width: '100%' }}
                             required
-                            defaultValue={new Date()}
-                            value={sale?.saleDate || new Date()}
+                            defaultValue={sale?.saleDate || new Date()}
                         />
                     </div>
                     <Button

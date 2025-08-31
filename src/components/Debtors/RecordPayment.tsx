@@ -72,6 +72,7 @@ const RecordPayment: React.FC<{ opened: boolean, close: () => void, debtor: Debt
                         placeholder={t('paymentModal.paymentDate')}
                         required
                         name="paymentDate"
+                        defaultValue={new Date()}
                     />
                     <Button
                         type="submit"

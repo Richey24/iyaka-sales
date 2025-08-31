@@ -37,3 +37,94 @@ export const kanoMarkets: { [lga: string]: string[] } = {
     'Ungogo': ['Ungogo Town', 'Rijiyar Zaki'],
     'Kumbotso': ['Kumbotso Industrial Area', 'Panshekara'],
 };
+
+export const kanoMarketsWithLga = [
+    {
+        market: 'Sabon Gari Market',
+        lga: 'Fagge',
+    },
+    {
+        market: 'Kantin Kwari Market',
+        lga: 'Fagge',
+    },
+    {
+        market: 'Kasuwar Wambai',
+        lga: 'Fagge',
+    },
+    {
+        market: 'Fagge Town',
+        lga: 'Fagge',
+    },
+    {
+        market: 'Kofar Mata',
+        lga: 'Kano Municipal',
+    },
+    {
+        market: 'Galadima',
+        lga: 'Kano Municipal',
+    },
+    {
+        market: 'Sharada Industrial Area',
+        lga: 'Kano Municipal',
+    },
+    {
+        market: 'Kofar Ruwa Market',
+        lga: 'Dala',
+    },
+    {
+        market: 'Dawanau Market (Grains)',
+        lga: 'Nasarawa',
+    },
+    {
+        market: 'Goron Dutse Area',
+        lga: 'Dala',
+    },
+    {
+        market: 'Tarauni Market',
+        lga: 'Nasarawa',
+    },
+    {
+        market: 'Hotoro Area',
+        lga: 'Nasarawa',
+    },
+    {
+        market: 'Yankaba Market (Vegetables)',
+        lga: 'Nasarawa',
+    },
+    {
+        market: 'Gwale General Area',
+        lga: 'Gwale',
+    },
+    {
+        market: 'Dorayi',
+        lga: 'Gwale',
+    },
+    {
+        market: 'Tarauni Main Area',
+        lga: 'Tarauni',
+    },
+    {
+        market: 'Gyadi-Gyadi',
+        lga: 'Tarauni',
+    },
+    {
+        market: 'Rijiyar Zaki',
+        lga: 'Ungogo',
+    },
+    {
+        market: 'Ungogo Town',
+        lga: 'Ungogo',
+    },
+    {
+        market: 'Kumbotso Industrial Area',
+        lga: 'Kumbotso',
+    },
+    {
+        market: 'Panshekara',
+        lga: 'Kumbotso',
+    },
+    {
+        market: 'My market is not listed',
+        lga: 'n/a',
+    }
+]

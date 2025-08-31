@@ -96,7 +96,8 @@
     "businessTypeNotFound": "Ana irin kasuwanci",
     "businessLocationNotFound": "Ana kasuwa ko babban yanki",
     "businessMarketNotFound": "Ana kasuwa ko babban yanki",
-    "otherMarket": "Sauran / Ba kuɗi kuɗi"
+    "otherMarket": "Sauran / Ba kuɗi kuɗi",
+    "automatedLGA": "LGA ɗinka ake anan yana karamin da wanda"
   },
   "createProfilePage": {
     "title": "Kammala Bayanan Ka",
@@ -236,7 +237,7 @@
       "cash": "Kudi a Hannu",
       "bank": "Tura wa Banki",
       "pos": "POS",
-      "credit": "Bashi",
+      "credit": "Bashi da Buɗe",
       "startDate": "Ranar Farawa",
       "endDate": "Ranar Ƙarewa"
     },
@@ -375,7 +376,17 @@
       "actions": "Ayyuka",
       "recordPayment": "Rubuta Biyan Bashi"
     },
-    "noDebtors": "Ba a sami masu bashi ba."
+    "noDebtors": "Ba a sami masu bashi ba.",
+    "debtDetails": {
+      "title": "Galami Masu Bashi",
+      "customerName": "Sunan Abokin Ciniki",
+      "totalDebt": "Jimlar Bashi",
+      "paymentHistory": "Tarihin Biyan Kuɗi",
+      "debtDate": "Ranar Bashi",
+      "amount": "Adadin",
+      "paymentDate": "Ranar Biyan Kuɗi",
+      "noPayments": "Ba a sami biyan kuɗi da aka rubuta tukuna."
+    }
   },
   "teamPage": {
     "addMember": "Ƙara Ma'aikaci",

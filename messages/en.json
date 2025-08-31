@@ -94,7 +94,8 @@
         "businessTypeNotFound": "No business type found",
         "businessLocationNotFound": "No business location found",
         "businessMarketNotFound": "No business market found",
-        "otherMarket": "Other/Not in a major market"
+        "otherMarket": "Other/Not in a major market",
+        "automatedLGA": "LGA Automatically Selected (Based on your market)"
     },
     "createProfilePage": {
         "title": "Complete Your Profile",
@@ -234,7 +235,7 @@
             "cash": "Cash",
             "bank": "Bank Transfer",
             "pos": "POS",
-            "credit": "Credit",
+            "credit": "Pay later",
             "startDate": "Start Date",
             "endDate": "End Date"
         },
@@ -374,6 +375,16 @@
             "status": "Status",
             "actions": "Actions",
             "recordPayment": "Record Payment"
+        },
+        "debtDetails": {
+            "title": "Debt Details",
+            "customerName": "Customer Name",
+            "totalDebt": "Total Debt",
+            "paymentHistory": "Payment History",
+            "debtDate": "Debt Date",
+            "amount": "Amount",
+            "paymentDate": "Payment Date",
+            "noPayments": "No payments recorded yet."
         },
         "noDebtors": "No debtors found."
     },
