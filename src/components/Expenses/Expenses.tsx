@@ -41,7 +41,7 @@ const Expenses = () => {
     }, [debouncedSearchTerm, page])
 
     return (
-        <div className="space-y-6 p-6">
+        <div className="space-y-6 p-3 md:p-6">
             <PageHeader title={`${t('sidebar.expenses')} (${totalExpenses})`} onAdd={() => {
                 setSelectedExpense(null)
                 setAddExpenseModal(true)
@@ -70,7 +70,7 @@ const Expenses = () => {
                                     <Table.Tr>
                                         <Table.Th>{t('expensesPage.table.date')}</Table.Th>
                                         <Table.Th>{t('expensesPage.table.description')}</Table.Th>
-                                        <Table.Th>{t('expensesPage.table.category')}</Table.Th>
+                                        <Table.Th className='hidden md:table-cell'>{t('expensesPage.table.category')}</Table.Th>
                                         <Table.Th>{t('expensesPage.table.amount')}</Table.Th>
                                         <Table.Th>{t('expensesPage.table.actions')}</Table.Th>
                                     </Table.Tr>
@@ -80,15 +80,15 @@ const Expenses = () => {
                                         <Table.Tr key={expense?._id}>
                                             <Table.Td>{new Date(expense?.expenseDate)?.toLocaleDateString()}</Table.Td>
                                             <Table.Td>{expense.description}</Table.Td>
-                                            <Table.Td>{expense.category}</Table.Td>
+                                            <Table.Td className='hidden md:table-cell'>{expense.category}</Table.Td>
                                             <Table.Td>{formatPriceString(expense?.amount)}</Table.Td>
                                             <Table.Td>
                                                 <div className="flex items-center space-x-2">
-                                                    <FaEdit className="text-gray-700 cursor-pointer" size={20} onClick={() => {
+                                                    <FaEdit className="text-gray-700 cursor-pointer w-[16px] h-[16px] md:w-[20px] md:h-[20px]" size={20} onClick={() => {
                                                         setSelectedExpense(expense)
                                                         setAddExpenseModal(true)
                                                     }} />
-                                                    <FaTrash className="text-gray-700 cursor-pointer" size={20} onClick={() => {
+                                                    <FaTrash className="text-gray-700 cursor-pointer w-[16px] h-[16px] md:w-[20px] md:h-[20px]" size={20} onClick={() => {
                                                         setSelectedExpense(expense)
                                                         setDeleteExpenseModal(true)
                                                     }} />

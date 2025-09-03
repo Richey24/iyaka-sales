@@ -43,7 +43,7 @@ const Debtors = () => {
     }, [debouncedSearchTerm, page])
 
     return (
-        <div className="space-y-6 p-6">
+        <div className="space-y-6 p-3 md:p-6">
             <PageHeader title={`${t('sidebar.debtors')} (${totalDebtors})`} onAdd={() => setAddDebtorModal(true)} addText={t('debtorsPage.addManualDebtor')} canExport={true} onExport={() => { }} />
             <Card>
                 <div className="relative">
@@ -68,8 +68,8 @@ const Debtors = () => {
                                 <Table.Thead>
                                     <Table.Tr>
                                         <Table.Th>{t('debtorsPage.table.customerName')}</Table.Th>
-                                        <Table.Th>{t('debtorsPage.table.totalOwed')}</Table.Th>
-                                        <Table.Th>{t('debtorsPage.table.amountPaid')}</Table.Th>
+                                        <Table.Th className='hidden md:table-cell'>{t('debtorsPage.table.totalOwed')}</Table.Th>
+                                        <Table.Th className='hidden md:table-cell'>{t('debtorsPage.table.amountPaid')}</Table.Th>
                                         <Table.Th>{t('debtorsPage.table.balance')}</Table.Th>
                                         <Table.Th>{t('debtorsPage.table.status')}</Table.Th>
                                         <Table.Th>{t('debtorsPage.table.actions')}</Table.Th>
@@ -83,8 +83,8 @@ const Debtors = () => {
                                                 setDebtDetailsModal(true)
                                             }}>
                                                 <Table.Td>{debtor?.name}</Table.Td>
-                                                <Table.Td>{formatPriceString(debtor?.totalDebt || 0)}</Table.Td>
-                                                <Table.Td>{formatPriceString(debtor?.totalPaid || 0)}</Table.Td>
+                                                <Table.Td className='hidden md:table-cell'>{formatPriceString(debtor?.totalDebt || 0)}</Table.Td>
+                                                <Table.Td className='hidden md:table-cell'>{formatPriceString(debtor?.totalPaid || 0)}</Table.Td>
                                                 <Table.Td>{formatPriceString(debtor?.totalDebt - (debtor?.totalPaid || 0))}</Table.Td>
                                                 <Table.Td><Badge color={getDebtorStatusColor(debtor?.totalDebt || 0, debtor?.totalPaid || 0)}>{getDebtorStatus(debtor?.totalDebt || 0, debtor?.totalPaid || 0)}</Badge></Table.Td>
                                                 <Table.Td>
@@ -93,8 +93,8 @@ const Debtors = () => {
                                                         setSelectedDebtor(debtor)
                                                         setRecordPaymentModal(true)
                                                     }}>
-                                                        <FaDollarSign className="text-white cursor-pointer" size={20} />
-                                                        <p className='text-white cursor-pointer text-sm'>Record Payment</p>
+                                                        <FaDollarSign className="text-white cursor-pointer w-[16px] h-[16px] md:w-[20px] md:h-[20px]" size={20} />
+                                                        <p className='text-white cursor-pointer text-[12px] md:text-sm hidden md:block'>Record Payment</p>
                                                     </div>
                                                 </Table.Td>
                                             </Table.Tr>

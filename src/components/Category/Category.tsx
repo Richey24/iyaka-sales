@@ -50,7 +50,7 @@ const Category = () => {
     }
 
     return (
-        <div className="space-y-6 p-6">
+        <div className="space-y-6 p-3 md:p-6">
             <PageHeader title={`${t('title')} (${totalCategories})`} onAdd={() => { setSelectedCategory(undefined); setAddCategoryModal(true) }} addText={t('addNewCategory')} />
             <Card>
                 <div className="relative">

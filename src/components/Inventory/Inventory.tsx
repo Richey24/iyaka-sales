@@ -52,7 +52,7 @@ const Inventory = () => {
     }
 
     return (
-        <div className="space-y-6 p-6">
+        <div className="space-y-6 p-3 md:p-6">
             <PageHeader title={`${t('sidebar.inventory')} (${totalProducts})`} onAdd={() => { setSelectedProduct(null); setAddProductModal(true) }} addText={t('inventoryPage.addNewProduct')} canExport={true} onExport={() => { }} />
             <Card>
                 <div className="relative">
@@ -76,9 +76,9 @@ const Inventory = () => {
                             <Table.Thead>
                                 <Table.Tr>
                                     <Table.Th>{t('inventoryPage.table.productName')}</Table.Th>
-                                    <Table.Th>{t('inventoryPage.table.category')}</Table.Th>
+                                    <Table.Th className='hidden md:table-cell'>{t('inventoryPage.table.category')}</Table.Th>
                                     <Table.Th>{t('inventoryPage.table.stock')}</Table.Th>
-                                    <Table.Th>{t('inventoryPage.table.price')}</Table.Th>
+                                    <Table.Th className='hidden md:table-cell'>{t('inventoryPage.table.price')}</Table.Th>
                                     <Table.Th>{t('inventoryPage.table.status')}</Table.Th>
                                     <Table.Th>{t('inventoryPage.table.actions')}</Table.Th>
                                 </Table.Tr>
@@ -88,16 +88,16 @@ const Inventory = () => {
                                     products.map((product) => (
                                         <Table.Tr key={product?._id} style={{cursor: 'pointer'}} onClick={() => { setSelectedProduct(product); setProductDetailsModal(true) }}>
                                             <Table.Td>{product?.name}</Table.Td>
-                                            <Table.Td>{product?.category?.name}</Table.Td>
+                                            <Table.Td className='hidden md:table-cell'>{product?.category?.name}</Table.Td>
                                             <Table.Td>{getProductStock(product)}</Table.Td>
-                                            <Table.Td>{getProductPrice(product)}</Table.Td>
+                                            <Table.Td className='hidden md:table-cell'>{getProductPrice(product)}</Table.Td>
                                             <Table.Td>
-                                                <Badge color={getProductStatus(getProductStock(product), product.lowStockLimit) === 'Low Stock' ? 'red' : 'green'}>{getProductStatus(getProductStock(product), product.lowStockLimit)}</Badge>
+                                                <Badge color={getProductStatus(getProductStock(product), product.lowStockLimit) === 'Low Stock' ? 'red' : 'green'} className='!text-[10px] md:!text-base'>{getProductStatus(getProductStock(product), product.lowStockLimit)}</Badge>
                                             </Table.Td>
                                             <Table.Td>
                                                 <div className="flex items-center space-x-2">
-                                                    <FaEdit className="text-gray-700 cursor-pointer" size={20} onClick={(e) => { e.stopPropagation(); setSelectedProduct(product); setAddProductModal(true) }} />
-                                                    <FaTrash className="text-gray-700 cursor-pointer" size={20} onClick={(e) => { e.stopPropagation(); setSelectedProduct(product); setDeleteProductModal(true) }} />
+                                                    <FaEdit className="text-gray-700 cursor-pointer w-[16px] h-[16px] md:w-[20px] md:h-[20px]" size={20} onClick={(e) => { e.stopPropagation(); setSelectedProduct(product); setAddProductModal(true) }} />
+                                                    <FaTrash className="text-gray-700 cursor-pointer w-[16px] h-[16px] md:w-[20px] md:h-[20px]" size={20} onClick={(e) => { e.stopPropagation(); setSelectedProduct(product); setDeleteProductModal(true) }} />
                                                 </div>
                                             </Table.Td>
                                         </Table.Tr>

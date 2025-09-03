@@ -33,7 +33,7 @@ const Dashboard = () => {
     return (
         <div className="space-y-6 p-6">
             <div className="flex flex-wrap justify-between items-center gap-4">
-                <h1 className="text-3xl font-bold">{t('sidebar.dashboard')}</h1>
+                <h1 className="text-2xl md:text-3xl font-bold">{t('sidebar.dashboard')}</h1>
                 <Select
                     data={timeFrameOptions}
                     value={timeFrame}
