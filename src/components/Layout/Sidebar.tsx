@@ -4,7 +4,7 @@ import { logout } from '@/api/auth';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react'
-import { FaBox, FaBoxOpen, FaCog, FaDollarSign, FaHome, FaMoneyBill, FaShoppingCart, FaSignOutAlt, FaUser, FaUsers } from 'react-icons/fa';
+import { FaBox, FaBoxOpen, FaCog, FaHome, FaMoneyBill, FaShoppingCart, FaSignOutAlt, FaUser, FaUsers } from 'react-icons/fa';
 import { useUserStore } from '@/store/userStore';
 import { IconType } from 'react-icons/lib';
 
@@ -21,7 +21,7 @@ const Sidebar = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (isOpen: b
         { page: '/dashboard/debtors', label: t('debtors'), icon: FaUser, role: ['admin', 'member'] },
         { page: '/dashboard/expenses', label: t('expenses'), icon: FaMoneyBill, role: ['admin', 'member'] },
         ( user?.role === 'admin' && { page: '/dashboard/team', label: t('team'), icon: FaUsers, role: ['admin'] }),
-        ( user?.role === 'admin' && { page: '/dashboard/billing', label: t('billing'), icon: FaDollarSign, role: ['admin'] }),
+        // ( user?.role === 'admin' && { page: '/dashboard/billing', label: t('billing'), icon: FaDollarSign, role: ['admin'] }),
         { page: '/dashboard/settings', label: t('settings'), icon: FaCog, role: ['admin', 'member'] },
     ].filter(Boolean) as { page: string, label: string, icon: IconType, role: string[] }[];
 
